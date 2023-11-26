@@ -49,6 +49,21 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 char* 		hello = "\nHello nemo2.space tracker p\n\n" ;
+
+char		rtc_dt_s[20] ;
+
+// TIM
+uint16_t	tim_seconds = 0 ; // Powinien być ten sam typ co my_lx6_gnss_active_time_ths
+
+// RTC
+RTC_TimeTypeDef rtc_t ;
+RTC_DateTypeDef rtc_d ;
+
+// Flags
+bool		is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
+bool		is_astro_evt_flag = false ;
+bool		is_rtc_alarm_a_flag = false ;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,7 +74,7 @@ static void MX_RTC_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+bool is_system_initialized ( void ) ;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,6 +116,19 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  // System hello
+  HAL_UART_Transmit ( HUART_DBG , (uint8_t*) hello , strlen (hello) , UART_TIMEOUT ) ;
+
+  // System Init
+  my_tim_init ( HTIM ) ;
+  if ( ! is_system_initialized () )
+  {
+	  // ASTRO INIT
+	  if ( !my_astro_init () )
+	  {
+		  HAL_NVIC_SystemReset () ;
+	  }
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -461,7 +489,6 @@ bool is_evt_pin_high ( void )
 {
 	return ( HAL_GPIO_ReadPin ( GPIOA , ASTRO_EVT_IT2_Pin ) == GPIO_PIN_SET ? true : false);
 }
-
 uint32_t get_systick ( void )
 {
     return HAL_GetTick() ;
@@ -470,6 +497,40 @@ bool is_systick_timeout_over ( uint32_t starting_value , uint16_t duration )
 {
     return ( get_systick () - starting_value > duration ) ? true : false ;
 }
+
+// TIM functions
+void my_tim_init ( TIM_HandleTypeDef* htim )
+{
+	__HAL_TIM_CLEAR_IT ( htim , TIM_IT_UPDATE ) ;
+}
+
+void my_tim_start ( TIM_HandleTypeDef* htim )
+{
+	tim_seconds = 0 ;
+	HAL_TIM_Base_Start_IT ( htim ) ;
+}
+
+void my_tim_stop ( TIM_HandleTypeDef* htim )
+{
+	HAL_TIM_Base_Stop_IT ( htim ) ;
+}
+
+// System functions
+bool is_system_initialized ( void )
+{
+	uint16_t yyyy ;
+
+	uint32_t commn_ts = astronode_send_rtc_rr () ;
+
+	yyyy = my_rtc_get_time_s ( rtc_dt_s ) ;
+	send_debug_logs ( rtc_dt_s ) ;
+	if ( yyyy >= FIRMWARE_RELEASE_YEAR || commn_ts != 0 )
+	{
+		return true ;
+	}
+	return false ;
+}
+
 /* USER CODE END 4 */
 
 /**
