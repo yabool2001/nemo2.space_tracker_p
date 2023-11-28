@@ -128,6 +128,20 @@ int main(void)
 	  if ( !my_astro_init ( htim6 ) )
 		  HAL_NVIC_SystemReset () ;
 
+  if ( my_rtc_set_alarm ( 20 ) )
+  {
+	  //HAL_Delay ( 8000 ) ;
+	  //my_rtc_get_dt_s ( rtc_dt_s ) ;
+	  //send_debug_logs ( rtc_dt_s ) ;
+	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
+	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
+	  HAL_ResumeTick () ;
+	  if ( is_rtc_alarm_a_flag )
+	  {
+		  send_debug_logs ( "main.c - running sm: RTC AlarmA happened. " ) ;
+		  is_rtc_alarm_a_flag = false ;
+	  }
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -142,6 +156,18 @@ int main(void)
 			  my_astro_read_evt_reg () ;
 		  }
 	  	  is_astro_evt_flag = false ;
+	  }
+	  send_debug_logs ( "main.c - running sm: nothing to do! Going to stop for 10 s" ) ;
+	  if ( my_rtc_set_alarm ( 20 ) )
+	  {
+		  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
+		  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
+		  HAL_ResumeTick () ;
+		  if ( is_rtc_alarm_a_flag )
+		  {
+			  send_debug_logs ( "main.c - running sm: RTC AlarmA happened. " ) ;
+			  is_rtc_alarm_a_flag = false ;
+		  }
 	  }
     /* USER CODE END WHILE */
 
@@ -567,7 +593,7 @@ bool my_astro_init ( TIM_HandleTypeDef htim )
 bool is_system_initialized ( void )
 {
 	// Nie próbuj robić nic z Astronode, bo nie wiesz czy nie trzeba go zainicjować restartem. Ogranicz się do samego systemu.
-	uint16_t yyyy = my_rtc_get_time_s ( rtc_dt_s ) ;
+	uint16_t yyyy = my_rtc_get_dt_s ( rtc_dt_s ) ;
 	send_debug_logs ( rtc_dt_s ) ;
 	return ( yyyy >= FIRMWARE_RELEASE_YEAR ) ? true : false ;
 }
@@ -576,6 +602,7 @@ bool is_system_initialized ( void )
 void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef *hrtc )
 {
 	is_rtc_alarm_a_flag = true ;
+	// __HAL_RTC_ALARM_CLEAR_FLAG(&hrtc, RTC_FLAG_ALRAF);  // Wyczyść flagę alarmu
 }
 
 // TIM Callbacks

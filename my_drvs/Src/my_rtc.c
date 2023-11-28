@@ -12,14 +12,12 @@
 ** m message example from Quectel L86: "$GPRMC,085151.187,V,,,,,0.00,0.00,291023,,,N,V*3A". \r\n have been wiped out.
 */
 
-extern RTC_HandleTypeDef hrtc ;
-
 void my_rtc_get_dt ( RTC_DateTypeDef* d , RTC_TimeTypeDef* t )
 {
 	HAL_RTC_GetDate ( &hrtc , d , RTC_FORMAT_BIN ) ;
 	HAL_RTC_GetTime ( &hrtc , t , RTC_FORMAT_BIN ) ;
 }
-uint16_t my_rtc_get_time_s ( char* dt_s )
+uint16_t my_rtc_get_dt_s ( char* dt_s )
 {
 	RTC_DateTypeDef gDate;
 	RTC_TimeTypeDef gTime;
@@ -29,7 +27,7 @@ uint16_t my_rtc_get_time_s ( char* dt_s )
 	HAL_RTC_GetTime ( &hrtc , &gTime , RTC_FORMAT_BIN ) ;
 	HAL_RTC_GetDate ( &hrtc , &gDate , RTC_FORMAT_BIN ) ;
 
-	sprintf ( dt_s , "%4d.%02d.%02d %02d:%02d:%02d" , 2000 + gDate.Year , gDate.Month , gDate.Date , gTime.Hours , gTime.Minutes , gTime.Seconds) ;
+	sprintf ( dt_s , "%4d.%02d.%02d %02d:%02d:%02d" , 2000 + gDate.Year , gDate.Month , gDate.Date , gTime.Hours , gTime.Minutes , gTime.Seconds ) ;
 
 	return (uint16_t) ( 2000 + gDate.Year ) ;
 }
@@ -52,7 +50,7 @@ bool my_rtc_set_alarm ( uint32_t s )
 	a.AlarmTime.SubSeconds = 0 ;
 	a.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE ;
 	a.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET ;
-	a.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY ;
+	a.AlarmMask = RTC_ALARMMASK_NONE ;
 	a.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL ;
 	a.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE ;
 	a.Alarm = RTC_ALARM_A ;
