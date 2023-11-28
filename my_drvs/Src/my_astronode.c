@@ -7,43 +7,6 @@
 #include "my_astronode.h"
 
 
-bool my_astro_init ( void )
-{
-	bool cfg_wr = false ;
-	tim_seconds = 0 ;
-
-	HAL_TIM_Base_Start_IT ( MY_TIMER ) ;
-	while ( tim_seconds < MY_ASTRO_INIT_TIME && !cfg_wr )
-	{
-		reset_astronode () ;
-		HAL_Delay ( 100 ) ;
-		// Satellite Acknowledgement (true): Asset informed of ACK to satellite (default)
-		// Add Geolocation (true)
-		// Enable_ephemeris (true)
-		// Deep Sleep Mode (false) NOT used
-		// Satellite Ack Event Pin Mask (true): EVT pin shows EVT register Payload Ack bit state
-		// Reset Notification Event Pin Mask (true):  EVT pin shows EVT register Reset Event Notification bit state
-		// Command Available Event Pin Mask (true): EVT pin shows EVT register Command Available bit state
-		// Message Transmission (Tx) Pending Event Pin Mask (false):  EVT pin does not show EVT register Msg Tx Pending bit state
-		cfg_wr = astronode_send_cfg_wr ( true , true , true , false , true , true , true , false  ) ;
-	}
-	//tim_seconds = 0 ;
-	HAL_TIM_Base_Stop_IT ( MY_TIMER ) ;
-	if ( cfg_wr )
-	{
-		astronode_send_rtc_rr () ;
-		astronode_send_cfg_sr () ;
-		astronode_send_mpn_rr () ;
-		astronode_send_msn_rr () ;
-		astronode_send_mgi_rr () ;
-		astronode_send_pld_fr () ;
-		return true ;
-	}
-	else
-	{
-		return false ;
-	}
-}
 bool my_astro_add_payload_2_queue ( uint16_t id , char* payload )
 {
 	size_t l = strlen ( payload ) ;

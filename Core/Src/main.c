@@ -75,6 +75,7 @@ static void MX_TIM6_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 bool is_system_initialized ( void ) ;
+bool my_astro_init ( TIM_HandleTypeDef ) ;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -121,13 +122,16 @@ int main(void)
 
   // System Init
   my_tim_init ( HTIM ) ;
+
+  // ASTRO INIT
+  if ( !my_astro_init ( htim6 ) )
+  {
+	  HAL_NVIC_SystemReset () ;
+  }
+  // Musze zrobić to później, bo w ramach is_system_initialized () musze mieć działający Astrocast, bo wywołuje jego funkcje.
   if ( ! is_system_initialized () )
   {
-	  // ASTRO INIT
-	  if ( !my_astro_init () )
-	  {
-		  HAL_NVIC_SystemReset () ;
-	  }
+	  __NOP () ;
   }
   /* USER CODE END 2 */
 
@@ -515,6 +519,46 @@ void my_tim_stop ( TIM_HandleTypeDef* htim )
 	HAL_TIM_Base_Stop_IT ( htim ) ;
 }
 
+// Astronode functions
+bool my_astro_init ( TIM_HandleTypeDef htim )
+{
+	bool cfg_wr = false ;
+	tim_seconds = 0 ;
+
+	my_tim_start ( &htim ) ;
+	while ( tim_seconds < MY_ASTRO_INIT_TIME && !cfg_wr )
+	{
+		reset_astronode () ;
+		HAL_Delay ( 100 ) ;
+		// Satellite Acknowledgement (true): Asset informed of ACK to satellite (default)
+		// Add Geolocation (true)
+		// Enable_ephemeris (true)
+		// Deep Sleep Mode (false) NOT used
+		// Satellite Ack Event Pin Mask (true): EVT pin shows EVT register Payload Ack bit state
+		// Reset Notification Event Pin Mask (true):  EVT pin shows EVT register Reset Event Notification bit state
+		// Command Available Event Pin Mask (true): EVT pin shows EVT register Command Available bit state
+		// Message Transmission (Tx) Pending Event Pin Mask (false):  EVT pin does not show EVT register Msg Tx Pending bit state
+		cfg_wr = astronode_send_cfg_wr ( true , true , true , false , true , true , true , false  ) ;
+	}
+	//tim_seconds = 0 ;
+	my_tim_stop ( MY_TIMER ) ;
+	if ( cfg_wr )
+	{
+		astronode_send_rtc_rr () ;
+		astronode_send_cfg_sr () ;
+		astronode_send_mpn_rr () ;
+		astronode_send_msn_rr () ;
+		astronode_send_mgi_rr () ;
+		astronode_send_pld_fr () ;
+		return true ;
+	}
+	else
+	{
+		return false ;
+	}
+}
+
+
 // System functions
 bool is_system_initialized ( void )
 {
@@ -524,7 +568,7 @@ bool is_system_initialized ( void )
 
 	yyyy = my_rtc_get_time_s ( rtc_dt_s ) ;
 	send_debug_logs ( rtc_dt_s ) ;
-	if ( yyyy >= FIRMWARE_RELEASE_YEAR || commn_ts != 0 )
+	if ( yyyy >= FIRMWARE_RELEASE_YEAR || commn_ts )
 	{
 		return true ;
 	}

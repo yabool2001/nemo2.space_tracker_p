@@ -17,7 +17,6 @@ extern TIM_HandleTypeDef htim6;
 
 extern uint16_t tim_seconds ;
 
-bool my_astro_init ( void ) ;
 void my_astro_reset_astronode ( void ) ;
 void my_astro_write_coordinates ( int32_t , int32_t ) ;
 bool my_astro_add_payload_2_queue ( uint16_t , char* ) ;
