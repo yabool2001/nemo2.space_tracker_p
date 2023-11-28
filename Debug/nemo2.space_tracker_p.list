@@ -20881,73 +20881,73 @@ bool my_rtc_set_alarm ( uint32_t s )
  800802c:	187b      	adds	r3, r7, r1
  800802e:	2200      	movs	r2, #0
  8008030:	611a      	str	r2, [r3, #16]
-	a.AlarmMask = RTC_ALARMMASK_NONE ;
+	a.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY ;
  8008032:	187b      	adds	r3, r7, r1
- 8008034:	2200      	movs	r2, #0
- 8008036:	615a      	str	r2, [r3, #20]
+ 8008034:	2280      	movs	r2, #128	; 0x80
+ 8008036:	0612      	lsls	r2, r2, #24
+ 8008038:	615a      	str	r2, [r3, #20]
 	a.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL ;
- 8008038:	187b      	adds	r3, r7, r1
- 800803a:	2200      	movs	r2, #0
- 800803c:	619a      	str	r2, [r3, #24]
+ 800803a:	187b      	adds	r3, r7, r1
+ 800803c:	2200      	movs	r2, #0
+ 800803e:	619a      	str	r2, [r3, #24]
 	a.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE ;
- 800803e:	187b      	adds	r3, r7, r1
- 8008040:	2200      	movs	r2, #0
- 8008042:	61da      	str	r2, [r3, #28]
+ 8008040:	187b      	adds	r3, r7, r1
+ 8008042:	2200      	movs	r2, #0
+ 8008044:	61da      	str	r2, [r3, #28]
 	a.Alarm = RTC_ALARM_A ;
- 8008044:	187b      	adds	r3, r7, r1
- 8008046:	2280      	movs	r2, #128	; 0x80
- 8008048:	0052      	lsls	r2, r2, #1
- 800804a:	625a      	str	r2, [r3, #36]	; 0x24
+ 8008046:	187b      	adds	r3, r7, r1
+ 8008048:	2280      	movs	r2, #128	; 0x80
+ 800804a:	0052      	lsls	r2, r2, #1
+ 800804c:	625a      	str	r2, [r3, #36]	; 0x24
 
 	if ( HAL_RTC_SetAlarm ( &hrtc , &a , RTC_FORMAT_BIN ) == HAL_OK )
- 800804c:	1879      	adds	r1, r7, r1
- 800804e:	4b14      	ldr	r3, [pc, #80]	; (80080a0 <my_rtc_set_alarm+0xe8>)
- 8008050:	2200      	movs	r2, #0
- 8008052:	0018      	movs	r0, r3
- 8008054:	f7fc fe88 	bl	8004d68 <HAL_RTC_SetAlarm>
- 8008058:	1e03      	subs	r3, r0, #0
- 800805a:	d117      	bne.n	800808c <my_rtc_set_alarm+0xd4>
+ 800804e:	1879      	adds	r1, r7, r1
+ 8008050:	4b13      	ldr	r3, [pc, #76]	; (80080a0 <my_rtc_set_alarm+0xe8>)
+ 8008052:	2200      	movs	r2, #0
+ 8008054:	0018      	movs	r0, r3
+ 8008056:	f7fc fe87 	bl	8004d68 <HAL_RTC_SetAlarm>
+ 800805a:	1e03      	subs	r3, r0, #0
+ 800805c:	d117      	bne.n	800808e <my_rtc_set_alarm+0xd6>
 	{
 		char s[60] = {0} ;
- 800805c:	240c      	movs	r4, #12
- 800805e:	193b      	adds	r3, r7, r4
- 8008060:	2200      	movs	r2, #0
- 8008062:	601a      	str	r2, [r3, #0]
- 8008064:	3304      	adds	r3, #4
- 8008066:	2238      	movs	r2, #56	; 0x38
- 8008068:	2100      	movs	r1, #0
- 800806a:	0018      	movs	r0, r3
- 800806c:	f000 fab6 	bl	80085dc <memset>
+ 800805e:	240c      	movs	r4, #12
+ 8008060:	193b      	adds	r3, r7, r4
+ 8008062:	2200      	movs	r2, #0
+ 8008064:	601a      	str	r2, [r3, #0]
+ 8008066:	3304      	adds	r3, #4
+ 8008068:	2238      	movs	r2, #56	; 0x38
+ 800806a:	2100      	movs	r1, #0
+ 800806c:	0018      	movs	r0, r3
+ 800806e:	f000 fab5 	bl	80085dc <memset>
 		sprintf ( s , "Alarm set to %lu" , alarm_ts ) ;
- 8008070:	197b      	adds	r3, r7, r5
- 8008072:	681a      	ldr	r2, [r3, #0]
- 8008074:	490b      	ldr	r1, [pc, #44]	; (80080a4 <my_rtc_set_alarm+0xec>)
- 8008076:	193b      	adds	r3, r7, r4
- 8008078:	0018      	movs	r0, r3
- 800807a:	f000 fa43 	bl	8008504 <sprintf>
+ 8008072:	197b      	adds	r3, r7, r5
+ 8008074:	681a      	ldr	r2, [r3, #0]
+ 8008076:	490b      	ldr	r1, [pc, #44]	; (80080a4 <my_rtc_set_alarm+0xec>)
+ 8008078:	193b      	adds	r3, r7, r4
+ 800807a:	0018      	movs	r0, r3
+ 800807c:	f000 fa42 	bl	8008504 <sprintf>
 		send_debug_logs ( s ) ;
- 800807e:	193b      	adds	r3, r7, r4
- 8008080:	0018      	movs	r0, r3
- 8008082:	f7fa fc71 	bl	8002968 <send_debug_logs>
+ 8008080:	193b      	adds	r3, r7, r4
+ 8008082:	0018      	movs	r0, r3
+ 8008084:	f7fa fc70 	bl	8002968 <send_debug_logs>
 		r = true ;
- 8008086:	19bb      	adds	r3, r7, r6
- 8008088:	2201      	movs	r2, #1
- 800808a:	701a      	strb	r2, [r3, #0]
+ 8008088:	19bb      	adds	r3, r7, r6
+ 800808a:	2201      	movs	r2, #1
+ 800808c:	701a      	strb	r2, [r3, #0]
 			break ;
 		}
 	}
 	HAL_TIM_Base_Stop_IT ( MY_TIMER ) ;
 	*/
 	return r ;
- 800808c:	238f      	movs	r3, #143	; 0x8f
- 800808e:	18fb      	adds	r3, r7, r3
- 8008090:	781b      	ldrb	r3, [r3, #0]
+ 800808e:	238f      	movs	r3, #143	; 0x8f
+ 8008090:	18fb      	adds	r3, r7, r3
+ 8008092:	781b      	ldrb	r3, [r3, #0]
 }
- 8008092:	0018      	movs	r0, r3
- 8008094:	46bd      	mov	sp, r7
- 8008096:	b025      	add	sp, #148	; 0x94
- 8008098:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800809a:	46c0      	nop			; (mov r8, r8)
+ 8008094:	0018      	movs	r0, r3
+ 8008096:	46bd      	mov	sp, r7
+ 8008098:	b025      	add	sp, #148	; 0x94
+ 800809a:	bdf0      	pop	{r4, r5, r6, r7, pc}
  800809c:	20000890 	.word	0x20000890
  80080a0:	200006dc 	.word	0x200006dc
  80080a4:	0800e958 	.word	0x0800e958

@@ -50,7 +50,7 @@ bool my_rtc_set_alarm ( uint32_t s )
 	a.AlarmTime.SubSeconds = 0 ;
 	a.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE ;
 	a.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET ;
-	a.AlarmMask = RTC_ALARMMASK_NONE ;
+	a.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY ;
 	a.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL ;
 	a.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE ;
 	a.Alarm = RTC_ALARM_A ;
