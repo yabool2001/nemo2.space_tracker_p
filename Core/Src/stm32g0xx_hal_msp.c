@@ -154,7 +154,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     /* Peripheral clock enable */
     __HAL_RCC_TIM6_CLK_ENABLE();
     /* TIM6 interrupt Init */
-    HAL_NVIC_SetPriority(TIM6_DAC_LPTIM1_IRQn, 3, 0);
+    HAL_NVIC_SetPriority(TIM6_DAC_LPTIM1_IRQn, 2, 0);
     HAL_NVIC_EnableIRQ(TIM6_DAC_LPTIM1_IRQn);
   /* USER CODE BEGIN TIM6_MspInit 1 */
 
@@ -221,7 +221,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     PA2     ------> USART2_TX
     PA3     ------> USART2_RX
     */
-    GPIO_InitStruct.Pin = UART2_TX_Pin|UART2_RX_Pin;
+    GPIO_InitStruct.Pin = DBG_TX_Pin|DBG_RX_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -255,7 +255,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     PB8     ------> USART3_TX
     PB9     ------> USART3_RX
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+    GPIO_InitStruct.Pin = ASTRO_TX_Pin|ASTRO_RX_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -289,7 +289,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     PA2     ------> USART2_TX
     PA3     ------> USART2_RX
     */
-    HAL_GPIO_DeInit(GPIOA, UART2_TX_Pin|UART2_RX_Pin);
+    HAL_GPIO_DeInit(GPIOA, DBG_TX_Pin|DBG_RX_Pin);
 
   /* USER CODE BEGIN USART2_MspDeInit 1 */
 
@@ -307,7 +307,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     PB8     ------> USART3_TX
     PB9     ------> USART3_RX
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8|GPIO_PIN_9);
+    HAL_GPIO_DeInit(GPIOB, ASTRO_TX_Pin|ASTRO_RX_Pin);
 
   /* USER CODE BEGIN USART3_MspDeInit 1 */
 

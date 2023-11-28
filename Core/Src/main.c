@@ -49,7 +49,6 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 char* 		hello = "\nHello nemo2.space tracker p\n\n" ;
-
 char		rtc_dt_s[20] ;
 
 // TIM
@@ -63,6 +62,8 @@ RTC_DateTypeDef rtc_d ;
 bool		is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
 bool		is_astro_evt_flag = false ;
 bool		is_rtc_alarm_a_flag = false ;
+
+// temp
 
 /* USER CODE END PV */
 
@@ -123,22 +124,25 @@ int main(void)
   // System Init
   my_tim_init ( HTIM ) ;
 
-  // ASTRO INIT
-  if ( !my_astro_init ( htim6 ) )
-  {
-	  HAL_NVIC_SystemReset () ;
-  }
-  // Musze zrobić to później, bo w ramach is_system_initialized () musze mieć działający Astrocast, bo wywołuje jego funkcje.
-  if ( ! is_system_initialized () )
-  {
-	  __NOP () ;
-  }
+  if ( !is_system_initialized () )
+	  if ( !my_astro_init ( htim6 ) )
+		  HAL_NVIC_SystemReset () ;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if ( is_astro_evt_flag ) // W takim układzie nowe przerwanie w trakcie obługi starego nie spowoduje, ze coś pominę
+	  {
+		  while ( is_evt_pin_high() )
+		  {
+			  send_debug_logs ( "main.c - running sm: is_evt_pin_high" ) ;
+			  my_astro_read_evt_reg () ;
+		  }
+	  	  is_astro_evt_flag = false ;
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -491,7 +495,7 @@ bool is_astronode_character_received ( uint8_t* p_rx_char )
 }
 bool is_evt_pin_high ( void )
 {
-	return ( HAL_GPIO_ReadPin ( GPIOA , ASTRO_EVT_IT2_Pin ) == GPIO_PIN_SET ? true : false);
+	return ( HAL_GPIO_ReadPin ( /*GPIOA*/ ASTRO_EVT_IT2_GPIO_Port , ASTRO_EVT_IT2_Pin ) == GPIO_PIN_SET ? true : false);
 }
 uint32_t get_systick ( void )
 {
@@ -503,20 +507,20 @@ bool is_systick_timeout_over ( uint32_t starting_value , uint16_t duration )
 }
 
 // TIM functions
-void my_tim_init ( TIM_HandleTypeDef* htim )
+void my_tim_init ( TIM_HandleTypeDef htim )
 {
-	__HAL_TIM_CLEAR_IT ( htim , TIM_IT_UPDATE ) ;
+	__HAL_TIM_CLEAR_IT ( &htim , TIM_IT_UPDATE ) ;
 }
 
-void my_tim_start ( TIM_HandleTypeDef* htim )
+void my_tim_start ( TIM_HandleTypeDef htim )
 {
 	tim_seconds = 0 ;
-	HAL_TIM_Base_Start_IT ( htim ) ;
+	HAL_TIM_Base_Start_IT ( &htim ) ;
 }
 
-void my_tim_stop ( TIM_HandleTypeDef* htim )
+void my_tim_stop ( TIM_HandleTypeDef htim )
 {
-	HAL_TIM_Base_Stop_IT ( htim ) ;
+	HAL_TIM_Base_Stop_IT ( &htim ) ;
 }
 
 // Astronode functions
@@ -525,7 +529,7 @@ bool my_astro_init ( TIM_HandleTypeDef htim )
 	bool cfg_wr = false ;
 	tim_seconds = 0 ;
 
-	my_tim_start ( &htim ) ;
+	my_tim_start ( htim ) ;
 	while ( tim_seconds < MY_ASTRO_INIT_TIME && !cfg_wr )
 	{
 		reset_astronode () ;
@@ -540,8 +544,8 @@ bool my_astro_init ( TIM_HandleTypeDef htim )
 		// Message Transmission (Tx) Pending Event Pin Mask (false):  EVT pin does not show EVT register Msg Tx Pending bit state
 		cfg_wr = astronode_send_cfg_wr ( true , true , true , false , true , true , true , false  ) ;
 	}
-	//tim_seconds = 0 ;
-	my_tim_stop ( MY_TIMER ) ;
+	tim_seconds = 0 ;
+	my_tim_stop ( htim ) ;
 	if ( cfg_wr )
 	{
 		astronode_send_rtc_rr () ;
@@ -562,17 +566,40 @@ bool my_astro_init ( TIM_HandleTypeDef htim )
 // System functions
 bool is_system_initialized ( void )
 {
-	uint16_t yyyy ;
-
-	uint32_t commn_ts = astronode_send_rtc_rr () ;
-
-	yyyy = my_rtc_get_time_s ( rtc_dt_s ) ;
+	// Nie próbuj robić nic z Astronode, bo nie wiesz czy nie trzeba go zainicjować restartem. Ogranicz się do samego systemu.
+	uint16_t yyyy = my_rtc_get_time_s ( rtc_dt_s ) ;
 	send_debug_logs ( rtc_dt_s ) ;
-	if ( yyyy >= FIRMWARE_RELEASE_YEAR || commn_ts )
+	return ( yyyy >= FIRMWARE_RELEASE_YEAR ) ? true : false ;
+}
+
+// RTC Callbacks
+void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef *hrtc )
+{
+	is_rtc_alarm_a_flag = true ;
+}
+
+// TIM Callbacks
+
+void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef *htim )
+{
+	if ( htim->Instance == TIM6 )
 	{
-		return true ;
+		tim_seconds++ ;
+		if ( tim_seconds > TIM_SECONDS_THS_SYSTEM_RESET )
+		  {
+			  HAL_NVIC_SystemReset () ;
+		  }
 	}
-	return false ;
+}
+
+// EXTI Callbacks
+void HAL_GPIO_EXTI_Rising_Callback ( uint16_t GPIO_Pin )
+{
+	//zamiast poniższego może lepiej wrócić do pierwotnego przeglądania GPIO w trybie input bez przerwania
+	if ( GPIO_Pin == 0x4 ) // ASTRO_EVT_Pin = 0x1000
+	{
+		is_astro_evt_flag = true ;
+	}
 }
 
 /* USER CODE END 4 */

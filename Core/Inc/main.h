@@ -69,19 +69,19 @@ bool is_astronode_character_received ( uint8_t* ) ;
 bool is_evt_pin_high ( void ) ;
 uint32_t get_systick ( void ) ;
 bool is_systick_timeout_over ( uint32_t , uint16_t ) ;
-void my_tim_init ( TIM_HandleTypeDef* ) ;
-void my_tim_start ( TIM_HandleTypeDef* ) ;
-void my_tim_stop ( TIM_HandleTypeDef* ) ;
+void my_tim_init ( TIM_HandleTypeDef ) ;
+void my_tim_start ( TIM_HandleTypeDef ) ;
+void my_tim_stop ( TIM_HandleTypeDef ) ;
 
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOF
-#define UART2_TX_Pin GPIO_PIN_2
-#define UART2_TX_GPIO_Port GPIOA
-#define UART2_RX_Pin GPIO_PIN_3
-#define UART2_RX_GPIO_Port GPIOA
+#define DBG_TX_Pin GPIO_PIN_2
+#define DBG_TX_GPIO_Port GPIOA
+#define DBG_RX_Pin GPIO_PIN_3
+#define DBG_RX_GPIO_Port GPIOA
 #define LDG_Pin GPIO_PIN_5
 #define LDG_GPIO_Port GPIOA
 #define ASTRO_WKUP_Pin GPIO_PIN_0
@@ -95,6 +95,10 @@ void my_tim_stop ( TIM_HandleTypeDef* ) ;
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define ASTRO_TX_Pin GPIO_PIN_8
+#define ASTRO_TX_GPIO_Port GPIOB
+#define ASTRO_RX_Pin GPIO_PIN_9
+#define ASTRO_RX_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define FIRMWARE_RELEASE_YEAR			2023
@@ -104,13 +108,14 @@ void my_tim_stop ( TIM_HandleTypeDef* ) ;
 #define UART_TX_MAX_BUFF_SIZE			250
 #define UART_ASTRO_RX_MAX_BUFF_SIZE		100
 
-#define TIM_SECONDS_THS_SYSTEM_RESET	900		// 900 s = 15 min.
+#define TIM_SECONDS_THS_SYSTEM_RESET	300		// 300 s = 5 min.
+#define MY_ASTRO_INIT_TIME				10
 #define ASTRO_LOG_TIMER					60000 	// 60 000 ms = 60 s
 
 #define SECONDS_IN_1_HOUR				3600
 #define HAL_STD_TIME_OPS_THS			2		// 2 s
 
-#define HTIM							&htim6
+#define HTIM							htim6
 
 /* USER CODE END Private defines */
 
