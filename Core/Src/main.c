@@ -130,12 +130,13 @@ int main(void)
 
   if ( my_rtc_set_alarm ( 20 ) )
   {
-	  //HAL_Delay ( 8000 ) ;
-	  //my_rtc_get_dt_s ( rtc_dt_s ) ;
-	  //send_debug_logs ( rtc_dt_s ) ;
+	  my_rtc_get_dt_s ( rtc_dt_s ) ;
+	  send_debug_logs ( rtc_dt_s ) ;
 	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
 	  HAL_ResumeTick () ;
+	  my_rtc_get_dt_s ( rtc_dt_s ) ;
+	  send_debug_logs ( rtc_dt_s ) ;
 	  if ( is_rtc_alarm_a_flag )
 	  {
 		  send_debug_logs ( "main.c - running sm: RTC AlarmA happened. " ) ;
