@@ -50,7 +50,7 @@ UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
 const char*	hello = "\nHello nemo2.space tracker p\n\n" ;
-const char*	fv = "0.0.1" ;
+const char*	fv = "0.0.2" ;
 char		rtc_dt_s[20] ;
 
 // TIM
