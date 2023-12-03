@@ -1,6 +1,5 @@
-my_drvs/Src/my_astronode.o: ../my_drvs/Src/my_astronode.c \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/my_astronode.h \
- ../Core/Inc/main.h ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
+my_lib/Src/my_rand.o: ../my_lib/Src/my_rand.c \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
  ../Core/Inc/stm32g0xx_hal_conf.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h \
@@ -32,15 +31,7 @@ my_drvs/Src/my_astronode.o: ../my_drvs/Src/my_astronode.c \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/my_rtc.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_lib/Inc/my_conversions.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_lib/Inc/my_rand.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_definitions.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_application.h \
- C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_definitions.h
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/my_astronode.h:
-../Core/Inc/main.h:
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
 ../Core/Inc/stm32g0xx_hal_conf.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h:
@@ -74,9 +65,3 @@ C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/my_astronode.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/my_rtc.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_lib/Inc/my_conversions.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_lib/Inc/my_rand.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_definitions.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_application.h:
-C:/Users/mzeml/embedded/nemo2.space_tracker_p/my_drvs/Inc/astronode_definitions.h:

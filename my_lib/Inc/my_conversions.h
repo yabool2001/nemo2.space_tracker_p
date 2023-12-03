@@ -19,5 +19,6 @@ uint8_t		my_find_char_position ( const char* , const char , uint8_t ) ;
 uint32_t	my_conv_rtc2timestamp ( RTC_DateTypeDef* , RTC_TimeTypeDef* ) ;
 void		my_conv_timestamp2rtc ( uint32_t , RTC_DateTypeDef* , RTC_TimeTypeDef* ) ;
 int			my_conv_is_leap_year ( int ) ;
+void		my_conv_dt_2_dts ( RTC_DateTypeDef* d , RTC_TimeTypeDef* t , char* dt_s ) ;
 
 #endif /* MY_CONVERSIONS_H_ */

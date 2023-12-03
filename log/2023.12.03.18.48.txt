@@ -1,0 +1,15 @@
+[2023-12-03 18:48:33.137] main.c,HAL_RTC_AlarmAEventCallback,
+[2023-12-03 18:48:33.137] 2000.01.01 00:00:11
+[2023-12-03 18:48:33.137] Message sent to the Astronode --> 
+[2023-12-03 18:48:33.137] 3527F21D03FBF13D017AE4
+[2023-12-03 18:48:33.137] Message received from the Astronode <-- 
+[2023-12-03 18:48:33.137] B58E16
+[2023-12-03 18:48:33.137] Geolocation values were set successfully.
+[2023-12-03 18:48:33.137] Message sent to the Astronode --> 
+[2023-12-03 18:48:33.137] 25000035392E319C2E
+[2023-12-03 18:48:33.137] Message received from the Astronode <-- 
+[2023-12-03 18:48:33.137] A50000F09A
+[2023-12-03 18:48:33.137] astronode_application: payload 0 queued.
+[2023-12-03 18:48:33.137] main.c,ucbw,nothing to do! Going to stop for 10 s
+[2023-12-03 18:48:33.137] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:11
+[2023-12-03 18:48:33.137] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:11

@@ -99,7 +99,7 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
   /** Initializes the peripherals clocks
   */
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-    PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+    PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
       Error_Handler();
@@ -108,6 +108,9 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
     /* Peripheral clock enable */
     __HAL_RCC_RTC_ENABLE();
     __HAL_RCC_RTCAPB_CLK_ENABLE();
+    /* RTC interrupt Init */
+    HAL_NVIC_SetPriority(RTC_TAMP_IRQn, 3, 0);
+    HAL_NVIC_EnableIRQ(RTC_TAMP_IRQn);
   /* USER CODE BEGIN RTC_MspInit 1 */
 
   /* USER CODE END RTC_MspInit 1 */
@@ -131,6 +134,9 @@ void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
     /* Peripheral clock disable */
     __HAL_RCC_RTC_DISABLE();
     __HAL_RCC_RTCAPB_CLK_DISABLE();
+
+    /* RTC interrupt DeInit */
+    HAL_NVIC_DisableIRQ(RTC_TAMP_IRQn);
   /* USER CODE BEGIN RTC_MspDeInit 1 */
 
   /* USER CODE END RTC_MspDeInit 1 */
@@ -266,6 +272,31 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 
   /* USER CODE END USART3_MspInit 1 */
   }
+  else if(huart->Instance==USART4)
+  {
+  /* USER CODE BEGIN USART4_MspInit 0 */
+
+  /* USER CODE END USART4_MspInit 0 */
+
+    /* Peripheral clock enable */
+    __HAL_RCC_USART4_CLK_ENABLE();
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    /**USART4 GPIO Configuration
+    PC11     ------> USART4_RX
+    PC10     ------> USART4_TX
+    */
+    GPIO_InitStruct.Pin = OPENLOG_RX_Pin|OPENLOG_TX_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF1_USART4;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN USART4_MspInit 1 */
+
+  /* USER CODE END USART4_MspInit 1 */
+  }
 
 }
 
@@ -312,6 +343,24 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
   /* USER CODE BEGIN USART3_MspDeInit 1 */
 
   /* USER CODE END USART3_MspDeInit 1 */
+  }
+  else if(huart->Instance==USART4)
+  {
+  /* USER CODE BEGIN USART4_MspDeInit 0 */
+
+  /* USER CODE END USART4_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USART4_CLK_DISABLE();
+
+    /**USART4 GPIO Configuration
+    PC11     ------> USART4_RX
+    PC10     ------> USART4_TX
+    */
+    HAL_GPIO_DeInit(GPIOC, OPENLOG_RX_Pin|OPENLOG_TX_Pin);
+
+  /* USER CODE BEGIN USART4_MspDeInit 1 */
+
+  /* USER CODE END USART4_MspDeInit 1 */
   }
 
 }

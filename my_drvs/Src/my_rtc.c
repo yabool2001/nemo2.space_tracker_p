@@ -33,6 +33,12 @@ uint16_t my_rtc_get_dt_s ( char* dt_s )
 }
 bool my_rtc_set_alarm ( uint32_t s )
 {
+	const char* cf = "my_rtc.c,my_rtc_set_alarm," ;
+	const char* cdt = "dt," ;
+	const char* cal = "al," ;
+	char  rtc_dt_s[20] ;
+	char  m[52] ;
+
 	tim_seconds = 0 ;
 
 	RTC_DateTypeDef 	d ;
@@ -40,6 +46,9 @@ bool my_rtc_set_alarm ( uint32_t s )
 	RTC_AlarmTypeDef	a ;
 
 	my_rtc_get_dt ( &d , &t ) ;
+	my_rtc_get_dt_s ( rtc_dt_s ) ; // Bez tej linii będzie błąd funkcji, która zacznie ustawiać alarm na wartość poprzedniego alarmu i wszystko się zawiesi
+	sprintf ( m , "%s%s%s" , cf , cdt , rtc_dt_s ) ;
+	send_debug_logs ( m ) ;
 	uint32_t alarm_ts = my_conv_rtc2timestamp ( &d , &t ) + s ;
 	my_conv_timestamp2rtc ( alarm_ts , &d , &t ) ;
 
@@ -57,9 +66,9 @@ bool my_rtc_set_alarm ( uint32_t s )
 	a.Alarm = RTC_ALARM_A ;
 	if ( HAL_RTC_SetAlarm_IT ( &hrtc , &a , RTC_FORMAT_BIN ) == HAL_OK )
 	{
-		char s[70] = {0} ;
-		sprintf ( s , "my_rtc.c: Alarm set to %lu" , alarm_ts ) ;
-		send_debug_logs ( s ) ;
+		my_conv_dt_2_dts ( &d , &t , rtc_dt_s ) ;
+		sprintf ( m , "%s%s%s" , cf , cal , rtc_dt_s ) ;
+		send_debug_logs ( m ) ;
 		return true ;
 	}
 	return false ;

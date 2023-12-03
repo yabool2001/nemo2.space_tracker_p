@@ -19,29 +19,29 @@ bool my_astro_add_payload_2_queue ( uint16_t id , char* payload )
 	}
 	else
 	{
-		send_debug_logs ( "ERROR: Payload exceeded ASTRONODE_APP_PAYLOAD_MAX_LEN_BYTES value." ) ;
+		send_debug_logs ( "my_astronode.c,my_astro_add_payload_2_queue,Payload exceeded ASTRONODE_APP_PAYLOAD_MAX_LEN_BYTES value." ) ;
 	}
 	return false ;
 }
 bool my_astro_read_evt_reg ( void )
 {
-	send_debug_logs ( "my_astro: evt pin is high." ) ;
+	send_debug_logs ( "my_astronode.c,my_astro_read_evt_reg,evt pin is high." ) ;
 	astronode_send_evt_rr () ;
 	if (is_sak_available () )
 	{
 	  astronode_send_sak_rr () ;
 	  astronode_send_sak_cr () ;
-	  send_debug_logs ( "my_astro: message has been acknowledged." ) ;
+	  send_debug_logs ( "my_astronode.c,my_astro_read_evt_reg,message has been acknowledged." ) ;
 	  //astronode_send_per_rr () ;
 	}
 	if ( is_astronode_reset () )
 	{
-	  send_debug_logs ( "my_astro: terminal has been reset." ) ;
+	  send_debug_logs ( "my_astronode.c,my_astro_read_evt_reg,terminal has been reset." ) ;
 	  astronode_send_res_cr () ;
 	}
 	if ( is_command_available () )
 	{
-	  send_debug_logs ( "my_astro: unicast command is available" ) ;
+	  send_debug_logs ( "my_astronode.c,my_astro_read_evt_reg,unicast command is available" ) ;
 	  astronode_send_cmd_rr () ;
 	  astronode_send_cmd_cr () ;
 	}

@@ -103,3 +103,7 @@ int my_conv_is_leap_year ( int yyyy )
     return ( ( yyyy % 4 == 0 ) && ( yyyy % 100 != 0 ) ) || ( yyyy % 400 == 0 ) ;
 }
 
+void my_conv_dt_2_dts ( RTC_DateTypeDef* d , RTC_TimeTypeDef* t , char* dt_s )
+{
+	sprintf ( dt_s , "%4d.%02d.%02d %02d:%02d:%02d" , 2000 + d->Year , d->Month , d->Date , t->Hours , t->Minutes , t->Seconds ) ;
+}

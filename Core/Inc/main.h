@@ -38,6 +38,7 @@ extern "C" {
 
 #include "my_rtc.h"
 #include "my_conversions.h"
+#include "my_rand.h"
 #include "astronode_definitions.h"
 #include "astronode_application.h"
 #include "my_astronode.h"
@@ -76,6 +77,8 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define OPENLOG_RX_Pin GPIO_PIN_11
+#define OPENLOG_RX_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOF
 #define DBG_TX_Pin GPIO_PIN_2
@@ -99,11 +102,14 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 #define ASTRO_TX_GPIO_Port GPIOB
 #define ASTRO_RX_Pin GPIO_PIN_9
 #define ASTRO_RX_GPIO_Port GPIOB
+#define OPENLOG_TX_Pin GPIO_PIN_10
+#define OPENLOG_TX_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 #define FIRMWARE_RELEASE_YEAR			2023
 #define HUART_ASTRO						&huart3
-#define HUART_DBG						&huart2
+#define HUART_DBG						&huart2 // Zrzut na st-link/v3
+//#define HUART_DBG						&huart4 // Zrzut na OpenLog SpurkFun
 #define UART_TIMEOUT 					1000
 #define UART_TX_MAX_BUFF_SIZE			250
 #define UART_ASTRO_RX_MAX_BUFF_SIZE		100
@@ -116,6 +122,9 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 #define HAL_STD_TIME_OPS_THS			2		// 2 s
 
 #define HTIM							htim6
+
+// ASTRO
+#define ASTRO_PAYLOAD_MAX_LEN			160
 
 /* USER CODE END Private defines */
 

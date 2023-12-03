@@ -30,3 +30,4 @@
 "./my_drvs/Src/my_astronode.o"
 "./my_drvs/Src/my_rtc.o"
 "./my_lib/Src/my_conversions.o"
+"./my_lib/Src/my_rand.o"

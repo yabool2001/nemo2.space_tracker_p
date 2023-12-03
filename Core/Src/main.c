@@ -46,6 +46,7 @@ TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
+UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
 char* 		hello = "\nHello nemo2.space tracker p\n\n" ;
@@ -58,12 +59,21 @@ uint16_t	tim_seconds = 0 ; // Powinien być ten sam typ co my_lx6_gnss_active_ti
 RTC_TimeTypeDef rtc_t ;
 RTC_DateTypeDef rtc_d ;
 
+// Astro
+uint16_t	astro_payload_id = 0 ;
+char		payload[ASTRO_PAYLOAD_MAX_LEN] = {0}; // 160 bajtów
+
 // Flags
 bool		is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
 bool		is_astro_evt_flag = false ;
-bool		is_rtc_alarm_a_flag = false ;
 
 // temp
+// Przykładowe współrzędne
+int32_t last_latitude_astro_geo_wr = 52278250 ;  // Początkowe współrzędne: 52.278250 * 10000000
+int32_t last_longitude_astro_geo_wr = 20809116 ; // Początkowe współrzędne: 20.809116 * 10000000
+int32_t latitude_astro_geo_wr = 0, longitude_astro_geo_wr = 0;
+float pdop ;
+
 
 /* USER CODE END PV */
 
@@ -74,6 +84,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_RTC_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_USART4_UART_Init(void);
 /* USER CODE BEGIN PFP */
 bool is_system_initialized ( void ) ;
 bool my_astro_init ( TIM_HandleTypeDef ) ;
@@ -116,6 +127,7 @@ int main(void)
   MX_RTC_Init();
   MX_TIM6_Init();
   MX_USART3_UART_Init();
+  MX_USART4_UART_Init();
   /* USER CODE BEGIN 2 */
 
   // System hello
@@ -125,23 +137,27 @@ int main(void)
   my_tim_init ( HTIM ) ;
 
   if ( !is_system_initialized () )
-	  if ( !my_astro_init ( htim6 ) )
-		  HAL_NVIC_SystemReset () ;
-
-  if ( my_rtc_set_alarm ( 20 ) )
   {
-	  my_rtc_get_dt_s ( rtc_dt_s ) ;
-	  send_debug_logs ( rtc_dt_s ) ;
+	  if ( !my_astro_init ( htim6 ) )
+	  {
+		  HAL_NVIC_SystemReset () ;
+	  }
+	  else
+	  {
+		  while ( is_evt_pin_high() )
+		  {
+			  send_debug_logs ( "main.c,ucb2,is_evt_pin_high" ) ;
+			  my_astro_read_evt_reg () ;
+		  }
+	  }
+  }
+  if ( my_rtc_set_alarm ( 10 ) )
+  {
 	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
 	  HAL_ResumeTick () ;
 	  my_rtc_get_dt_s ( rtc_dt_s ) ;
 	  send_debug_logs ( rtc_dt_s ) ;
-	  if ( is_rtc_alarm_a_flag )
-	  {
-		  send_debug_logs ( "main.c - running sm: RTC AlarmA happened. " ) ;
-		  is_rtc_alarm_a_flag = false ;
-	  }
   }
   /* USER CODE END 2 */
 
@@ -149,26 +165,28 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if ( is_astro_evt_flag ) // W takim układzie nowe przerwanie w trakcie obługi starego nie spowoduje, ze coś pominę
+	  while ( is_evt_pin_high() )
 	  {
-		  while ( is_evt_pin_high() )
-		  {
-			  send_debug_logs ( "main.c - running sm: is_evt_pin_high" ) ;
-			  my_astro_read_evt_reg () ;
-		  }
-	  	  is_astro_evt_flag = false ;
+		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
+		  my_astro_read_evt_reg () ;
 	  }
-	  send_debug_logs ( "main.c - running sm: nothing to do! Going to stop for 10 s" ) ;
-	  if ( my_rtc_set_alarm ( 20 ) )
+	  // Prepare payload to Astronode
+	  my_rand_get_coordinates ( &last_latitude_astro_geo_wr , &last_longitude_astro_geo_wr , &latitude_astro_geo_wr , &longitude_astro_geo_wr ) ;
+	  my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
+	  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
+	  sprintf ( payload , "%.1f" , pdop ) ;
+	  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
+	  while ( is_evt_pin_high() )
+	  {
+		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
+		  my_astro_read_evt_reg () ;
+	  }
+	  send_debug_logs ( "main.c,ucbw,nothing to do! Going to stop for 10 s" ) ;
+	  if ( my_rtc_set_alarm ( 3600 ) )
 	  {
 		  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 		  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
 		  HAL_ResumeTick () ;
-		  if ( is_rtc_alarm_a_flag )
-		  {
-			  send_debug_logs ( "main.c - running sm: RTC AlarmA happened. " ) ;
-			  is_rtc_alarm_a_flag = false ;
-		  }
 	  }
     /* USER CODE END WHILE */
 
@@ -190,14 +208,19 @@ void SystemClock_Config(void)
   */
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
 
+  /** Configure LSE Drive Capability
+  */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -293,7 +316,7 @@ static void MX_RTC_Init(void)
   sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
   sAlarm.AlarmDateWeekDay = 1;
   sAlarm.Alarm = RTC_ALARM_A;
-  if (HAL_RTC_SetAlarm(&hrtc, &sAlarm, RTC_FORMAT_BIN) != HAL_OK)
+  if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BIN) != HAL_OK)
   {
     Error_Handler();
   }
@@ -434,6 +457,42 @@ static void MX_USART3_UART_Init(void)
   /* USER CODE BEGIN USART3_Init 2 */
 
   /* USER CODE END USART3_Init 2 */
+
+}
+
+/**
+  * @brief USART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART4_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART4_Init 0 */
+
+  /* USER CODE END USART4_Init 0 */
+
+  /* USER CODE BEGIN USART4_Init 1 */
+
+  /* USER CODE END USART4_Init 1 */
+  huart4.Instance = USART4;
+  huart4.Init.BaudRate = 115200;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart4.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART4_Init 2 */
+
+  /* USER CODE END USART4_Init 2 */
 
 }
 
@@ -600,10 +659,11 @@ bool is_system_initialized ( void )
 }
 
 // RTC Callbacks
-void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef *hrtc )
+void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef* hrtc )
 {
-	is_rtc_alarm_a_flag = true ;
-	// __HAL_RTC_ALARM_CLEAR_FLAG(&hrtc, RTC_FLAG_ALRAF);  // Wyczyść flagę alarmu
+	// is_rtc_alarm_a_flag = true ;
+	//__HAL_RTC_ALARM_CLEAR_FLAG ( hrtc , RTC_FLAG_ALRAF ) ;  // Wyczyść flagę alarmu
+	send_debug_logs ( "main.c,HAL_RTC_AlarmAEventCallback," ) ;
 }
 
 // TIM Callbacks
@@ -614,9 +674,10 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef *htim )
 	{
 		tim_seconds++ ;
 		if ( tim_seconds > TIM_SECONDS_THS_SYSTEM_RESET )
-		  {
-			  HAL_NVIC_SystemReset () ;
-		  }
+		{
+			send_debug_logs ( "main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset" ) ;
+			HAL_NVIC_SystemReset () ;
+		}
 	}
 }
 
@@ -624,10 +685,15 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef *htim )
 void HAL_GPIO_EXTI_Rising_Callback ( uint16_t GPIO_Pin )
 {
 	//zamiast poniższego może lepiej wrócić do pierwotnego przeglądania GPIO w trybie input bez przerwania
+	/*
 	if ( GPIO_Pin == 0x4 ) // ASTRO_EVT_Pin = 0x1000
 	{
 		is_astro_evt_flag = true ;
 	}
+	*/
+	char m[70];
+	sprintf ( m , "main.c,HAL_GPIO_EXTI_Rising_Callback,%d" , GPIO_Pin ) ;
+	send_debug_logs ( m ) ;
 }
 
 /* USER CODE END 4 */
