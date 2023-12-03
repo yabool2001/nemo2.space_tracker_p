@@ -59,6 +59,7 @@ uint16_t	tim_seconds = 0 ; // Powinien być ten sam typ co my_lx6_gnss_active_ti
 // RTC
 RTC_TimeTypeDef rtc_t ;
 RTC_DateTypeDef rtc_d ;
+uint32_t		rtc_alarm_time = 7200 ;
 
 // Astro
 uint16_t	astro_payload_id = 0 ;
@@ -70,10 +71,16 @@ bool		is_astro_evt_flag = false ;
 
 // temp
 // Przykładowe współrzędne
-int32_t last_latitude_astro_geo_wr = 52278250 ;  // Początkowe współrzędne: 52.278250 * 10000000
+int32_t last_latitude_astro_geo_wr = 52278250 ; // Początkowe współrzędne: 52.278250 * 10000000
 int32_t last_longitude_astro_geo_wr = 20809116 ; // Początkowe współrzędne: 20.809116 * 10000000
-int32_t latitude_astro_geo_wr = 0, longitude_astro_geo_wr = 0;
+int32_t latitude_astro_geo_wr , longitude_astro_geo_wr ;
+
+//int32_t latitude_astro_geo_wr = last_latitude_astro_geo_wr ;
+//int32_t longitude_astro_geo_wr = last_longitude_astro_geo_wr ;
 float pdop ;
+
+//SYSTEM
+char	dbg_m[DBG_PAYLOAD_MAX_LEN] = {0} ;
 
 
 /* USER CODE END PV */
@@ -151,10 +158,13 @@ int main(void)
 			  my_astro_read_evt_reg () ;
 		  }
 		  sprintf ( payload , "fv=%s" , fv ) ;
+		  sprintf ( dbg_m , "main.c,ucb2,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
+		  my_astro_write_coordinates ( last_latitude_astro_geo_wr , last_longitude_astro_geo_wr ) ;
 		  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
+		  send_debug_logs ( dbg_m ) ;
 	  }
   }
-  if ( my_rtc_set_alarm ( 10 ) )
+  if ( my_rtc_set_alarm ( rtc_alarm_time ) )
   {
 	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
@@ -178,14 +188,16 @@ int main(void)
 	  my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
 	  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
 	  sprintf ( payload , "%.1f" , pdop ) ;
+	  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
 	  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
+	  send_debug_logs ( dbg_m ) ;
 	  while ( is_evt_pin_high() )
 	  {
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
 		  my_astro_read_evt_reg () ;
 	  }
 	  send_debug_logs ( "main.c,ucbw,nothing to do! Going to stop for 10 s" ) ;
-	  if ( my_rtc_set_alarm ( 3600 ) )
+	  if ( my_rtc_set_alarm ( rtc_alarm_time ) )
 	  {
 		  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 		  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;

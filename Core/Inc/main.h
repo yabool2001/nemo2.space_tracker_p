@@ -126,6 +126,9 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 // ASTRO
 #define ASTRO_PAYLOAD_MAX_LEN			160
 
+//SYSTEM
+#define DBG_PAYLOAD_MAX_LEN				250
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

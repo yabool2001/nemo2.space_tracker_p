@@ -41,6 +41,7 @@ void my_rand_get_coordinates ( int32_t* last_latitude_astro_geo_wr , int32_t* la
     {
         *longitude_astro_geo_wr = *longitude_astro_geo_wr + 3600000000 ;
     }
+    *last_latitude_astro_geo_wr = *latitude_astro_geo_wr ; *last_longitude_astro_geo_wr = *longitude_astro_geo_wr ;
 }
 
 /* Inna wersja
