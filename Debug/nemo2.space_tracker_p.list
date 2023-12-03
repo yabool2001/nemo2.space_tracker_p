@@ -5353,6 +5353,7 @@ int main(void)
  8002a10:	4b1b      	ldr	r3, [pc, #108]	; (8002a80 <main+0x250>)
  8002a12:	0018      	movs	r0, r3
  8002a14:	f000 fae6 	bl	8002fe4 <send_debug_logs>
+
 	  while ( is_evt_pin_high() )
  8002a18:	e005      	b.n	8002a26 <main+0x1f6>
 	  {
@@ -5393,7 +5394,7 @@ int main(void)
  8002a58:	e78d      	b.n	8002976 <main+0x146>
  8002a5a:	46c0      	nop			; (mov r8, r8)
  8002a5c:	20000000 	.word	0x20000000
- 8002a60:	20000764 	.word	0x20000764
+ 8002a60:	2000088c 	.word	0x2000088c
  8002a64:	20000718 	.word	0x20000718
  8002a68:	0800de00 	.word	0x0800de00
  8002a6c:	20000004 	.word	0x20000004
@@ -6408,7 +6409,7 @@ void send_debug_logs ( char* p_tx_buffer )
  8003034:	bd80      	pop	{r7, pc}
  8003036:	46c0      	nop			; (mov r8, r8)
  8003038:	0800deb4 	.word	0x0800deb4
- 800303c:	20000764 	.word	0x20000764
+ 800303c:	2000088c 	.word	0x2000088c
  8003040:	0800dee0 	.word	0x0800dee0
 
 08003044 <reset_astronode>:

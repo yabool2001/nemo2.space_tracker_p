@@ -108,8 +108,8 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 /* USER CODE BEGIN Private defines */
 #define FIRMWARE_RELEASE_YEAR			2023
 #define HUART_ASTRO						&huart3
-#define HUART_DBG						&huart2 // Zrzut na st-link/v3
-//#define HUART_DBG						&huart4 // Zrzut na OpenLog SpurkFun
+//#define HUART_DBG						&huart2 // Zrzut na st-link/v3
+#define HUART_DBG						&huart4 // Zrzut na OpenLog SpurkFun
 #define UART_TIMEOUT 					1000
 #define UART_TX_MAX_BUFF_SIZE			250
 #define UART_ASTRO_RX_MAX_BUFF_SIZE		100

@@ -191,6 +191,7 @@ int main(void)
 	  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
 	  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
 	  send_debug_logs ( dbg_m ) ;
+
 	  while ( is_evt_pin_high() )
 	  {
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
