@@ -49,7 +49,8 @@ UART_HandleTypeDef huart3;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
-char* 		hello = "\nHello nemo2.space tracker p\n\n" ;
+const char*	hello = "\nHello nemo2.space tracker p\n\n" ;
+const char*	fv = "0.0.1" ;
 char		rtc_dt_s[20] ;
 
 // TIM
@@ -149,6 +150,8 @@ int main(void)
 			  send_debug_logs ( "main.c,ucb2,is_evt_pin_high" ) ;
 			  my_astro_read_evt_reg () ;
 		  }
+		  sprintf ( payload , "fv=%s" , fv ) ;
+		  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
 	  }
   }
   if ( my_rtc_set_alarm ( 10 ) )
