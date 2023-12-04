@@ -59,7 +59,7 @@ uint16_t	tim_seconds = 0 ; // Powinien być ten sam typ co my_lx6_gnss_active_ti
 // RTC
 RTC_TimeTypeDef rtc_t ;
 RTC_DateTypeDef rtc_d ;
-uint32_t		rtc_alarm_time = 7200 ;
+uint32_t		rtc_alarm_time = 7200 ; // 7200
 
 // Astro
 uint16_t	astro_payload_id = 0 ;
@@ -67,7 +67,7 @@ char		payload[ASTRO_PAYLOAD_MAX_LEN] = {0}; // 160 bajtów
 
 // Flags
 bool		is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
-bool		is_astro_evt_flag = false ;
+bool		is_rtc_alarma_flag = false ;
 
 // temp
 // Przykładowe współrzędne
@@ -77,6 +77,10 @@ int32_t latitude_astro_geo_wr , longitude_astro_geo_wr ;
 
 //int32_t latitude_astro_geo_wr = last_latitude_astro_geo_wr ;
 //int32_t longitude_astro_geo_wr = last_longitude_astro_geo_wr ;
+
+// OpenLog
+
+
 float pdop ;
 
 //SYSTEM
@@ -183,15 +187,19 @@ int main(void)
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
 		  my_astro_read_evt_reg () ;
 	  }
-	  // Prepare payload to Astronode
-	  my_rand_get_coordinates ( &last_latitude_astro_geo_wr , &last_longitude_astro_geo_wr , &latitude_astro_geo_wr , &longitude_astro_geo_wr ) ;
-	  my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
-	  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
-	  sprintf ( payload , "%.1f" , pdop ) ;
-	  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
-	  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
-	  send_debug_logs ( dbg_m ) ;
 
+	  // Prepare payload to Astronode
+	  if ( is_rtc_alarma_flag )
+	  {
+		  is_rtc_alarma_flag = false ;
+		  my_rand_get_coordinates ( &last_latitude_astro_geo_wr , &last_longitude_astro_geo_wr , &latitude_astro_geo_wr , &longitude_astro_geo_wr ) ;
+		  my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
+		  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
+		  sprintf ( payload , "%.1f" , pdop ) ;
+		  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
+		  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
+		  send_debug_logs ( dbg_m ) ;
+	  }
 	  while ( is_evt_pin_high() )
 	  {
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
@@ -497,7 +505,7 @@ static void MX_USART4_UART_Init(void)
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
   huart4.Init.Mode = UART_MODE_TX_RX;
-  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_RTS;
   huart4.Init.OverSampling = UART_OVERSAMPLING_16;
   huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart4.Init.ClockPrescaler = UART_PRESCALER_DIV1;
@@ -679,6 +687,7 @@ void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef* hrtc )
 {
 	// is_rtc_alarm_a_flag = true ;
 	//__HAL_RTC_ALARM_CLEAR_FLAG ( hrtc , RTC_FLAG_ALRAF ) ;  // Wyczyść flagę alarmu
+	is_rtc_alarma_flag = true ;
 	send_debug_logs ( "main.c,HAL_RTC_AlarmAEventCallback," ) ;
 }
 

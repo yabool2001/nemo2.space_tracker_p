@@ -282,8 +282,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     __HAL_RCC_USART4_CLK_ENABLE();
 
     __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USART4 GPIO Configuration
     PC11     ------> USART4_RX
+    PA15     ------> USART4_RTS
     PC10     ------> USART4_TX
     */
     GPIO_InitStruct.Pin = OPENLOG_RX_Pin|OPENLOG_TX_Pin;
@@ -292,6 +294,13 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF1_USART4;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = OPENLOG_RTS_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF4_USART4;
+    HAL_GPIO_Init(OPENLOG_RTS_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN USART4_MspInit 1 */
 
@@ -354,9 +363,12 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 
     /**USART4 GPIO Configuration
     PC11     ------> USART4_RX
+    PA15     ------> USART4_RTS
     PC10     ------> USART4_TX
     */
     HAL_GPIO_DeInit(GPIOC, OPENLOG_RX_Pin|OPENLOG_TX_Pin);
+
+    HAL_GPIO_DeInit(OPENLOG_RTS_GPIO_Port, OPENLOG_RTS_Pin);
 
   /* USER CODE BEGIN USART4_MspDeInit 1 */
 

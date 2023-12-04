@@ -13,12 +13,12 @@ void my_rand_get_coordinates ( int32_t* last_latitude_astro_geo_wr , int32_t* la
 {
 
     // Wartości współrzędnych przemnożone przez 10000000
-    int32_t last_lat = *last_latitude_astro_geo_wr;
-    int32_t last_lon = *last_longitude_astro_geo_wr;
+    int32_t last_lat = *last_latitude_astro_geo_wr ;
+    int32_t last_lon = *last_longitude_astro_geo_wr ;
 
     // Losowa odległość w zakresie 0-100 km (jako różnica współrzędnych)
-    int32_t delta_lat = rand() % 100000 - 50000;  // zakres: -50000 do 49999
-    int32_t delta_lon = rand() % 100000 - 50000;  // zakres: -50000 do 49999
+    int32_t delta_lat = ( rand() % 100000 - 50000 ) * 10 ;  // zakres: -50000 do 49999
+    int32_t delta_lon = ( rand() % 100000 - 50000 ) * 10 ;  // zakres: -50000 do 49999
 
     // Nowe współrzędne
     *latitude_astro_geo_wr = last_lat + delta_lat;

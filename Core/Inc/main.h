@@ -98,6 +98,8 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define OPENLOG_RTS_Pin GPIO_PIN_15
+#define OPENLOG_RTS_GPIO_Port GPIOA
 #define ASTRO_TX_Pin GPIO_PIN_8
 #define ASTRO_TX_GPIO_Port GPIOB
 #define ASTRO_RX_Pin GPIO_PIN_9
