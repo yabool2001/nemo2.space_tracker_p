@@ -1,0 +1,252 @@
+2023.12.06 00:01:52:603,Hello nemo2.space tracker p
+2023.12.06 00:01:52:606,2000.01.01 00:00:00
+2023.12.06 00:01:52:784,main.c,HAL_GPIO_EXTI_Rising_Callback,4
+2023.12.06 00:01:52:963,Message sent to the Astronode -->
+2023.12.06 00:01:52:965,05070007F2CD
+2023.12.06 00:01:52:992,Message received from the Astronode <--
+2023.12.06 00:01:52:992,85DD20
+2023.12.06 00:01:52:996,Astronode configuration successfully set.
+2023.12.06 00:01:53:000,Message sent to the Astronode -->
+2023.12.06 00:01:53:001,172683
+2023.12.06 00:01:53:030,Message received from the Astronode <--
+2023.12.06 00:01:53:031,97D831260B2C92
+2023.12.06 00:01:53:038,RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187052504s.
+2023.12.06 00:01:53:042,Message sent to the Astronode -->
+2023.12.06 00:01:53:043,10C1F3
+2023.12.06 00:01:53:068,Message received from the Astronode <--
+2023.12.06 00:01:53:069,904962
+2023.12.06 00:01:53:073,Astronode configuration successfully saved in NVM.
+2023.12.06 00:01:53:077,Message sent to the Astronode -->
+2023.12.06 00:01:53:078,1BAA42
+2023.12.06 00:01:53:132,Message received from the Astronode <--
+2023.12.06 00:01:53:136,9B41535435303134372D30310000000000D272
+2023.12.06 00:01:53:138,Module's product number is:
+2023.12.06 00:01:53:139,AST50147-01
+2023.12.06 00:01:53:143,Message sent to the Astronode -->
+2023.12.06 00:01:53:144,1A8B52
+2023.12.06 00:01:53:198,Message received from the Astronode <--
+2023.12.06 00:01:53:202,9A414E5332323132464C303030303235310969
+2023.12.06 00:01:53:205,Module's Serial Number is:
+2023.12.06 00:01:53:206,ANS2212FL000025
+2023.12.06 00:01:53:210,Message sent to the Astronode -->
+2023.12.06 00:01:53:211,19E862
+2023.12.06 00:01:53:307,Message received from the Astronode <--
+2023.12.06 00:01:53:314,9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+2023.12.06 00:01:53:316,Module GUID is:
+2023.12.06 00:01:53:319,e7a9e5ea-509f-4864-9373-bd29c8d389f
+2023.12.06 00:01:53:323,Message sent to the Astronode -->
+2023.12.06 00:01:53:324,2775B5
+2023.12.06 00:01:53:349,Message received from the Astronode <--
+2023.12.06 00:01:53:350,FF01266A74
+2023.12.06 00:01:53:359,[ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+2023.12.06 00:01:53:364,astronode_application: Failed to clear the payload queue.
+2023.12.06 00:01:53:366,main.c,ucb2,is_evt_pin_high
+2023.12.06 00:01:53:371,my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+2023.12.06 00:01:53:375,Message sent to the Astronode -->
+2023.12.06 00:01:53:376,65F3DD
+2023.12.06 00:01:53:398,Message received from the Astronode <--
+2023.12.06 00:01:53:399,E5020AD2
+2023.12.06 00:01:53:401,Astronode has reset.
+2023.12.06 00:01:53:407,my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+2023.12.06 00:01:53:410,Message sent to the Astronode -->
+2023.12.06 00:01:53:411,55A0EB
+2023.12.06 00:01:53:432,Message received from the Astronode <--
+2023.12.06 00:01:53:433,D5287A
+2023.12.06 00:01:53:437,astronode_application: The reset has been cleared.
+2023.12.06 00:01:53:441,Message sent to the Astronode -->
+2023.12.06 00:01:53:444,35EAB31D039C853D01F5D0
+2023.12.06 00:01:53:481,Message received from the Astronode <--
+2023.12.06 00:01:53:482,B58E16
+2023.12.06 00:01:53:486,Geolocation values were set successfully.
+2023.12.06 00:01:53:490,Message sent to the Astronode -->
+2023.12.06 00:01:53:492,25000066763D302E302E3224D1
+2023.12.06 00:01:53:539,Message received from the Astronode <--
+2023.12.06 00:01:53:540,A50000F09A
+2023.12.06 00:01:53:544,astronode_application: payload 0 queued.
+2023.12.06 00:01:53:546,main.c,ucb2,payload,0 fv=0.0.2
+2023.12.06 00:01:53:551,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+2023.12.06 00:01:53:557,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 02:00:00
+2023.12.06 02:01:52:550,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 02:01:52:552,2000.01.01 02:00:00
+2023.12.06 02:01:52:557,Message sent to the Astronode -->
+2023.12.06 02:01:52:560,354C22200352C141015C0E
+2023.12.06 02:01:52:597,Message received from the Astronode <--
+2023.12.06 02:01:52:598,B58E16
+2023.12.06 02:01:52:604,Geolocation values were set successfully.
+2023.12.06 02:01:52:608,Message sent to the Astronode -->
+2023.12.06 02:01:52:610,25010035392E313C6B
+2023.12.06 02:01:52:644,Message received from the Astronode <--
+2023.12.06 02:01:52:645,A50100C1A9
+2023.12.06 02:01:52:649,astronode_application: payload 1 queued.
+2023.12.06 02:01:52:651,main.c,ucnw,payload,1 59.1
+2023.12.06 02:01:52:656,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 02:00:00
+2023.12.06 02:01:52:662,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 04:00:00
+2023.12.06 04:01:52:495,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 04:01:52:499,Message sent to the Astronode -->
+2023.12.06 04:01:52:502,3586782603DAC2440117FE
+2023.12.06 04:01:52:539,Message received from the Astronode <--
+2023.12.06 04:01:52:540,B58E16
+2023.12.06 04:01:52:544,Geolocation values were set successfully.
+2023.12.06 04:01:52:548,Message sent to the Astronode -->
+2023.12.06 04:01:52:550,25020032352E3756E1
+2023.12.06 04:01:52:588,Message received from the Astronode <--
+2023.12.06 04:01:52:589,A5020092FC
+2023.12.06 04:01:52:593,astronode_application: payload 2 queued.
+2023.12.06 04:01:52:595,main.c,ucnw,payload,2 25.7
+2023.12.06 04:01:52:600,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 04:00:00
+2023.12.06 04:01:52:605,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 06:00:00
+2023.12.06 06:01:52:440,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 06:01:52:446,Message sent to the Astronode -->
+2023.12.06 06:01:52:448,35D66E26032A724A0190E1
+2023.12.06 06:01:52:483,Message received from the Astronode <--
+2023.12.06 06:01:52:484,B58E16
+2023.12.06 06:01:52:488,Geolocation values were set successfully.
+2023.12.06 06:01:52:492,Message sent to the Astronode -->
+2023.12.06 06:01:52:494,25030033342E309595
+2023.12.06 06:01:52:532,Message received from the Astronode <--
+2023.12.06 06:01:52:533,A50300A3CF
+2023.12.06 06:01:52:537,astronode_application: payload 3 queued.
+2023.12.06 06:01:52:539,main.c,ucnw,payload,3 34.0
+2023.12.06 06:01:52:544,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 06:00:00
+2023.12.06 06:01:52:549,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 08:00:00
+2023.12.06 08:01:52:378,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 08:01:52:382,Message sent to the Astronode -->
+2023.12.06 08:01:52:384,35FCAB270300085201608B
+2023.12.06 08:01:52:421,Message received from the Astronode <--
+2023.12.06 08:01:52:422,B58E16
+2023.12.06 08:01:52:426,Geolocation values were set successfully.
+2023.12.06 08:01:52:430,Message sent to the Astronode -->
+2023.12.06 08:01:52:432,25040034302E391041
+2023.12.06 08:01:52:470,Message received from the Astronode <--
+2023.12.06 08:01:52:472,A504003456
+2023.12.06 08:01:52:475,astronode_application: payload 4 queued.
+2023.12.06 08:01:52:478,main.c,ucnw,payload,4 40.9
+2023.12.06 08:01:52:483,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 08:00:00
+2023.12.06 08:01:52:488,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 10:00:00
+2023.12.06 10:01:52:297,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 10:01:52:300,Message sent to the Astronode -->
+2023.12.06 10:01:52:303,354A282B034A695601C6AE
+2023.12.06 10:01:52:342,Message received from the Astronode <--
+2023.12.06 10:01:52:344,B58E16
+2023.12.06 10:01:52:349,Geolocation values were set successfully.
+2023.12.06 10:01:52:352,Message sent to the Astronode -->
+2023.12.06 10:01:52:354,25050039382E30BE05
+2023.12.06 10:01:52:389,Message received from the Astronode <--
+2023.12.06 10:01:52:390,A505000565
+2023.12.06 10:01:52:394,astronode_application: payload 5 queued.
+2023.12.06 10:01:52:397,main.c,ucnw,payload,5 98.0
+2023.12.06 10:01:52:401,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 10:00:00
+2023.12.06 10:01:52:407,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 12:00:00
+2023.12.06 12:41:13:768,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 12:41:13:780,2000.01.01 02:00:00
+2023.12.06 12:41:13:784,Message sent to the Astronode -->
+2023.12.06 12:41:13:786,354C22200352C141015C0E
+2023.12.06 12:41:13:814,Message received from the Astronode <--
+2023.12.06 12:41:13:815,B58E16
+2023.12.06 12:41:13:819,Geolocation values were set successfully.
+2023.12.06 12:41:13:823,Message sent to the Astronode -->
+2023.12.06 12:41:13:825,25010035392E313C6B
+2023.12.06 12:41:13:863,Message received from the Astronode <--
+2023.12.06 12:41:13:865,A50100C1A9
+2023.12.06 12:41:13:869,astronode_application: payload 1 queued.
+2023.12.06 12:41:13:871,main.c,ucnw,payload,1 59.1
+2023.12.06 12:41:13:875,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 02:00:00
+2023.12.06 12:41:13:881,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 04:00:00
+2023.12.06 14:41:13:608,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 14:41:13:612,Message sent to the Astronode -->
+2023.12.06 14:41:13:614,3586782603DAC2440117FE
+2023.12.06 14:41:13:651,Message received from the Astronode <--
+2023.12.06 14:41:13:652,B58E16
+2023.12.06 14:41:13:656,Geolocation values were set successfully.
+2023.12.06 14:41:13:661,Message sent to the Astronode -->
+2023.12.06 14:41:13:662,25020032352E3756E1
+2023.12.06 14:41:13:700,Message received from the Astronode <--
+2023.12.06 14:41:13:702,A5020092FC
+2023.12.06 14:41:13:705,astronode_application: payload 2 queued.
+2023.12.06 14:41:13:708,main.c,ucnw,payload,2 25.7
+2023.12.06 14:41:13:713,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 04:00:00
+2023.12.06 14:41:13:718,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 06:00:00
+2023.12.06 16:41:13:624,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 16:41:13:629,Message sent to the Astronode -->
+2023.12.06 16:41:13:632,35D66E26032A724A0190E1
+2023.12.06 16:41:13:668,Message received from the Astronode <--
+2023.12.06 16:41:13:669,B58E16
+2023.12.06 16:41:13:673,Geolocation values were set successfully.
+2023.12.06 16:41:13:676,Message sent to the Astronode -->
+2023.12.06 16:41:13:678,25030033342E309595
+2023.12.06 16:41:13:715,Message received from the Astronode <--
+2023.12.06 16:41:13:716,A50300A3CF
+2023.12.06 16:41:13:720,astronode_application: payload 3 queued.
+2023.12.06 16:41:13:723,main.c,ucnw,payload,3 34.0
+2023.12.06 16:41:13:727,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 06:00:00
+2023.12.06 16:41:13:733,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 08:00:00
+2023.12.06 18:41:13:564,main.c,HAL_RTC_AlarmAEventCallback,
+2023.12.06 18:41:13:568,Message sent to the Astronode -->
+2023.12.06 18:41:13:571,35FCAB270300085201608B
+2023.12.06 18:41:13:608,Message received from the Astronode <--
+2023.12.06 18:41:13:609,B58E16
+2023.12.06 18:41:13:613,Geolocation values were set successfully.
+2023.12.06 18:41:13:617,Message sent to the Astronode -->
+2023.12.06 18:41:13:619,25040034302E391041
+2023.12.06 18:41:13:657,Message received from the Astronode <--
+2023.12.06 18:41:13:658,A504003456
+2023.12.06 18:41:13:662,astronode_application: payload 4 queued.
+2023.12.06 18:41:13:664,main.c,ucnw,payload,4 40.9
+2023.12.06 18:41:13:669,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 08:00:00
+2023.12.06 18:41:13:674,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 10:00:00
+2023.12.06 20:29:58:778,main.c,HAL_GPIO_EXTI_Rising_Callback,4
+2023.12.06 20:29:58:781,main.c,ucbw,is_evt_pin_high
+2023.12.06 20:29:58:787,my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+2023.12.06 20:29:58:790,Message sent to the Astronode -->
+2023.12.06 20:29:58:792,65F3DD
+2023.12.06 20:29:58:812,Message received from the Astronode <--
+2023.12.06 20:29:58:814,E50DE523
+2023.12.06 20:29:58:817,Message acknowledgment available.
+2023.12.06 20:29:58:820,Command available.
+2023.12.06 20:29:58:822,TX message pending.
+2023.12.06 20:29:58:825,Message sent to the Astronode -->
+2023.12.06 20:29:58:826,4591F9
+2023.12.06 20:29:58:849,Message received from the Astronode <--
+2023.12.06 20:29:58:851,C50100AA32
+2023.12.06 20:29:58:855,Acknowledgment for payload 1 is available.
+2023.12.06 20:29:58:858,Message sent to the Astronode -->
+2023.12.06 20:29:58:859,46F2C9
+2023.12.06 20:29:58:880,Message received from the Astronode <--
+2023.12.06 20:29:58:881,C67A58
+2023.12.06 20:29:58:884,The acknowledgment has been cleared.
+2023.12.06 20:29:58:890,my_astronode.c,my_astro_read_evt_reg,message has been acknowledged.
+2023.12.06 20:29:58:896,my_astronode.c,my_astro_read_evt_reg,unicast command is available
+2023.12.06 20:29:58:900,Message sent to the Astronode -->
+2023.12.06 20:29:58:900,47D3D9
+2023.12.06 20:29:59:013,Message received from the Astronode <--
+2023.12.06 20:29:59:022,C726BD240B323032332E31322E30342E32312E3331205554432B3100000000000000000000000000000000000059F8
+2023.12.06 20:29:59:025,Received downlink command
+2023.12.06 20:29:59:033,Command created date, Ref is astrocast Epoch (2018-01-01 00:00:00 UTC): 186957094s.
+2023.12.06 20:29:59:035,Command content is:
+2023.12.06 20:29:59:037,2023.12.04.21.31 UTC+1
+2023.12.06 20:29:59:041,Message sent to the Astronode -->
+2023.12.06 20:29:59:042,483C28
+2023.12.06 20:29:59:062,Message received from the Astronode <--
+2023.12.06 20:29:59:064,C8B4B9
+2023.12.06 20:29:59:067,The command ack has been cleared.
+2023.12.06 20:29:59:070,main.c,ucbw,is_evt_pin_high
+2023.12.06 20:29:59:074,my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+2023.12.06 20:29:59:078,Message sent to the Astronode -->
+2023.12.06 20:29:59:079,65F3DD
+2023.12.06 20:29:59:101,Message received from the Astronode <--
+2023.12.06 20:29:59:102,E5096163
+2023.12.06 20:29:59:105,Message acknowledgment available.
+2023.12.06 20:29:59:107,TX message pending.
+2023.12.06 20:29:59:111,Message sent to the Astronode -->
+2023.12.06 20:29:59:112,4591F9
+2023.12.06 20:29:59:137,Message received from the Astronode <--
+2023.12.06 20:29:59:138,C50200F967
+2023.12.06 20:29:59:142,Acknowledgment for payload 2 is available.
+2023.12.06 20:29:59:145,Message sent to the Astronode -->
+2023.12.06 20:29:59:146,46F2C9
+2023.12.06 20:29:59:167,Message received from the Astronode <--
+2023.12.06 20:29:59:168,C67A58
+2023.12.06 20:29:59:171,The acknowledgment has been cleared.
+2023.12.06 20:29:59:177,my_astronode.c,my_astro_read_evt_reg,message has been acknowledged.
+2023.12.06 20:29:59:182,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 09:48:45
+2023.12.06 20:29:59:188,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 11:48:45

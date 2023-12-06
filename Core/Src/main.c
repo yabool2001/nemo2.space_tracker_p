@@ -205,7 +205,6 @@ int main(void)
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
 		  my_astro_read_evt_reg () ;
 	  }
-	  send_debug_logs ( "main.c,ucbw,nothing to do! Going to stop for 10 s" ) ;
 	  if ( my_rtc_set_alarm ( rtc_alarm_time ) )
 	  {
 		  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
