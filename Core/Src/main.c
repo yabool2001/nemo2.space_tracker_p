@@ -59,27 +59,24 @@ uint16_t	tim_seconds = 0 ; // Powinien być ten sam typ co my_lx6_gnss_active_ti
 // RTC
 RTC_TimeTypeDef rtc_t ;
 RTC_DateTypeDef rtc_d ;
-uint32_t		rtc_alarm_time = 7200 ; // 7200
+uint32_t		rtc_alarm_time = 3600 ; // 7200
 
 // Astro
 uint16_t	astro_payload_id = 0 ;
 char		payload[ASTRO_PAYLOAD_MAX_LEN] = {0}; // 160 bajtów
 
 // Flags
-bool		is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
-bool		is_rtc_alarma_flag = false ;
+bool	is_system_already_initialized = false ; // Recognize if system has successful GNSS contact and has real time, Based on rtc settings.
+bool	is_rtc_alarm_flag = false ;
+bool	dbg_mode_flag = true ;
 
 // temp
-// Przykładowe współrzędne
-/*
-int32_t last_latitude_astro_geo_wr = 52278250 ; // Początkowe współrzędne: 52.278250 * 10000000
-int32_t last_longitude_astro_geo_wr = 20809116 ; // Początkowe współrzędne: 20.809116 * 10000000
-*/
-double last_latitude_astro_geo_wr = 52.278250 ; // Początkowe współrzędne: 52.278250 * 10000000
-double last_longitude_astro_geo_wr = 20.809116 ; // Początkowe współrzędne: 20.809116 * 10000000
 
-// int32_t latitude_astro_geo_wr , longitude_astro_geo_wr ;
+// Przykładowe współrzędne
+double last_latitude_astro_geo_wr = 52.278250 ;
+double last_longitude_astro_geo_wr = 20.809116 ;
 double latitude_astro_geo_wr , longitude_astro_geo_wr ;
+
 
 //int32_t latitude_astro_geo_wr = last_latitude_astro_geo_wr ;
 //int32_t longitude_astro_geo_wr = last_longitude_astro_geo_wr ;
@@ -169,13 +166,12 @@ int main(void)
 		  }
 		  sprintf ( payload , "fv=%s" , fv ) ;
 		  sprintf ( dbg_m , "main.c,ucb2,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
-		  //my_astro_write_coordinates ( last_latitude_astro_geo_wr , last_longitude_astro_geo_wr ) ;
-		  my_astro_write_coordinates ( (int32_t) last_latitude_astro_geo_wr * 1e7 , (int32_t) last_longitude_astro_geo_wr * 1e7 ) ;
+		  my_astro_write_coordinates ( (int32_t) ( last_latitude_astro_geo_wr * 1e7 ) , (int32_t) ( last_longitude_astro_geo_wr * 1e7 ) ) ;
 		  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
 		  send_debug_logs ( dbg_m ) ;
 	  }
   }
-  if ( my_rtc_set_alarm ( rtc_alarm_time ) )
+  if ( my_rtc_set_alarm ( rtc_alarm_time ) && !dbg_mode_flag )
   {
 	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
@@ -196,11 +192,11 @@ int main(void)
 	  }
 
 	  // Prepare payload to Astronode
-	  if ( is_rtc_alarma_flag )
+	  if ( is_rtc_alarm_flag )
 	  {
-		  is_rtc_alarma_flag = false ;
+		  is_rtc_alarm_flag = false ;
 		  my_rand_get_coordinates ( &last_latitude_astro_geo_wr , &last_longitude_astro_geo_wr , &latitude_astro_geo_wr , &longitude_astro_geo_wr ) ;
-		  //my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
+		  my_astro_write_coordinates ( (int32_t) ( latitude_astro_geo_wr * 1e7 ) , (int32_t) ( longitude_astro_geo_wr * 1e7 ) ) ;
 		  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
 		  sprintf ( payload , "%.1f" , pdop ) ;
 		  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
@@ -212,12 +208,15 @@ int main(void)
 		  send_debug_logs ( "main.c,ucbw,is_evt_pin_high" ) ;
 		  my_astro_read_evt_reg () ;
 	  }
-	  if ( my_rtc_set_alarm ( rtc_alarm_time ) )
-	  {
-		  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
-		  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
-		  HAL_ResumeTick () ;
-	  }
+	  if ( !dbg_mode_flag )
+		  if ( my_rtc_set_alarm ( rtc_alarm_time ) && !dbg_mode_flag )
+		  {
+			  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
+			  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
+			  HAL_ResumeTick () ;
+			  my_rtc_get_dt_s ( rtc_dt_s ) ;
+			  send_debug_logs ( rtc_dt_s ) ;
+		  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -693,7 +692,7 @@ void HAL_RTC_AlarmAEventCallback ( RTC_HandleTypeDef* hrtc )
 {
 	// is_rtc_alarm_a_flag = true ;
 	//__HAL_RTC_ALARM_CLEAR_FLAG ( hrtc , RTC_FLAG_ALRAF ) ;  // Wyczyść flagę alarmu
-	is_rtc_alarma_flag = true ;
+	is_rtc_alarm_flag = true ;
 	send_debug_logs ( "main.c,HAL_RTC_AlarmAEventCallback," ) ;
 }
 

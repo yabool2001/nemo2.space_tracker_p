@@ -16,9 +16,12 @@ void my_rand_get_coordinates ( double* last_latitude_astro_geo_wr , double* last
     double last_lat = *last_latitude_astro_geo_wr ;
     double last_lon = *last_longitude_astro_geo_wr ;
 
+    // Ziarno dla generatora liczb losowych
+    srand ( HAL_GetTick () ) ;
+
     // Losowa odległość w zakresie 0-100 km (jako różnica współrzędnych)
-    double delta_lat = ( ( double ) rand () / RAND_MAX - 0.5 ) * 0.2 ;  // zakres: -0.1 do 0.1
-    double delta_lon = ( ( double ) rand () / RAND_MAX - 0.5 ) * 0.2 ;  // zakres: -0.1 do 0.1
+    double delta_lat = ( ( double ) rand () / RAND_MAX - 0.5 ) * 1 ;  // zakres: -0.1 do 0.1
+    double delta_lon = ( ( double ) rand () / RAND_MAX - 0.5 ) * 1 ;  // zakres: -0.1 do 0.1
 
     // Nowe współrzędne
     *latitude_astro_geo_wr = last_lat + delta_lat;
