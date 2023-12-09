@@ -1,0 +1,108 @@
+2023.12.09 09:09:40:312,Hello nemo2.space tracker p
+2023.12.09 09:09:40:315,2000.01.01 00:00:00
+2023.12.09 09:09:40:618,Hello nemo2.space tracker p
+2023.12.09 09:09:40:620,2000.01.01 00:00:00
+2023.12.09 09:09:40:805,main.c,HAL_GPIO_EXTI_Rising_Callback,4
+2023.12.09 09:09:40:977,Message sent to the Astronode -->
+2023.12.09 09:09:40:979,05070007F2CD
+2023.12.09 09:09:41:006,Message received from the Astronode <--
+2023.12.09 09:09:41:007,85DD20
+2023.12.09 09:09:41:011,Astronode configuration successfully set.
+2023.12.09 09:09:41:014,Message sent to the Astronode -->
+2023.12.09 09:09:41:016,172683
+2023.12.09 09:09:41:044,Message received from the Astronode <--
+2023.12.09 09:09:41:046,97000000005250
+2023.12.09 09:09:41:051,RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 0s.
+2023.12.09 09:09:41:055,Message sent to the Astronode -->
+2023.12.09 09:09:41:056,10C1F3
+2023.12.09 09:09:41:083,Message received from the Astronode <--
+2023.12.09 09:09:41:084,904962
+2023.12.09 09:09:41:088,Astronode configuration successfully saved in NVM.
+2023.12.09 09:09:41:092,Message sent to the Astronode -->
+2023.12.09 09:09:41:093,1BAA42
+2023.12.09 09:09:41:147,Message received from the Astronode <--
+2023.12.09 09:09:41:151,9B41535435303134372D30310000000000D272
+2023.12.09 09:09:41:153,Module's product number is:
+2023.12.09 09:09:41:154,AST50147-01
+2023.12.09 09:09:41:158,Message sent to the Astronode -->
+2023.12.09 09:09:41:159,1A8B52
+2023.12.09 09:09:41:213,Message received from the Astronode <--
+2023.12.09 09:09:41:217,9A414E5332323132464C303030303235310969
+2023.12.09 09:09:41:220,Module's Serial Number is:
+2023.12.09 09:09:41:221,ANS2212FL000025
+2023.12.09 09:09:41:225,Message sent to the Astronode -->
+2023.12.09 09:09:41:226,19E862
+2023.12.09 09:09:41:322,Message received from the Astronode <--
+2023.12.09 09:09:41:329,9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+2023.12.09 09:09:41:331,Module GUID is:
+2023.12.09 09:09:41:334,e7a9e5ea-509f-4864-9373-bd29c8d389f
+2023.12.09 09:09:41:338,Message sent to the Astronode -->
+2023.12.09 09:09:41:339,2775B5
+2023.12.09 09:09:41:364,Message received from the Astronode <--
+2023.12.09 09:09:41:366,FF01266A74
+2023.12.09 09:09:41:374,[ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+2023.12.09 09:09:41:380,astronode_application: Failed to clear the payload queue.
+2023.12.09 09:09:41:382,main.c,ucb2,is_evt_pin_high
+2023.12.09 09:09:41:387,my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+2023.12.09 09:09:41:391,Message sent to the Astronode -->
+2023.12.09 09:09:41:392,65F3DD
+2023.12.09 09:09:41:413,Message received from the Astronode <--
+2023.12.09 09:09:41:415,E5020AD2
+2023.12.09 09:09:41:417,Astronode has reset.
+2023.12.09 09:09:41:423,my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+2023.12.09 09:09:41:426,Message sent to the Astronode -->
+2023.12.09 09:09:41:427,55A0EB
+2023.12.09 09:09:41:447,Message received from the Astronode <--
+2023.12.09 09:09:41:449,D5287A
+2023.12.09 09:09:41:453,astronode_application: The reset has been cleared.
+2023.12.09 09:09:41:457,Message sent to the Astronode -->
+2023.12.09 09:09:41:459,350092FE1E00C2EB0B8488
+2023.12.09 09:09:41:496,Message received from the Astronode <--
+2023.12.09 09:09:41:498,B58E16
+2023.12.09 09:09:41:502,Geolocation values were set successfully.
+2023.12.09 09:09:41:505,Message sent to the Astronode -->
+2023.12.09 09:09:41:508,25000066763D302E302E3224D1
+2023.12.09 09:09:41:554,Message received from the Astronode <--
+2023.12.09 09:09:41:555,A50000F09A
+2023.12.09 09:09:41:559,astronode_application: payload 0 queued.
+2023.12.09 09:09:41:562,main.c,ucb2,payload,0 fv=0.0.2
+2023.12.09 09:09:41:567,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+2023.12.09 09:09:41:572,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 02:00:00
+2023.12.09 09:10:21:748,main.c,HAL_GPIO_EXTI_Rising_Callback,4
+2023.12.09 09:10:21:750,2000.01.01 00:00:41
+2023.12.09 09:10:21:753,main.c,ucbw,is_evt_pin_high
+2023.12.09 09:10:21:758,my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+2023.12.09 09:10:21:762,Message sent to the Astronode -->
+2023.12.09 09:10:21:763,65F3DD
+2023.12.09 09:10:21:784,Message received from the Astronode <--
+2023.12.09 09:10:21:785,E50DE523
+2023.12.09 09:10:21:789,Message acknowledgment available.
+2023.12.09 09:10:21:790,Command available.
+2023.12.09 09:10:21:792,TX message pending.
+2023.12.09 09:10:21:796,Message sent to the Astronode -->
+2023.12.09 09:10:21:797,4591F9
+2023.12.09 09:10:21:822,Message received from the Astronode <--
+2023.12.09 09:10:21:823,C500009B01
+2023.12.09 09:10:21:827,Acknowledgment for payload 0 is available.
+2023.12.09 09:10:21:830,Message sent to the Astronode -->
+2023.12.09 09:10:21:831,46F2C9
+2023.12.09 09:10:21:852,Message received from the Astronode <--
+2023.12.09 09:10:21:853,C67A58
+2023.12.09 09:10:21:856,The acknowledgment has been cleared.
+2023.12.09 09:10:21:862,my_astronode.c,my_astro_read_evt_reg,message has been acknowledged.
+2023.12.09 09:10:21:868,my_astronode.c,my_astro_read_evt_reg,unicast command is available
+2023.12.09 09:10:21:872,Message sent to the Astronode -->
+2023.12.09 09:10:21:873,47D3D9
+2023.12.09 09:10:21:919,Message received from the Astronode <--
+2023.12.09 09:10:21:922,C78DC0290B382E31362E34370057D8
+2023.12.09 09:10:21:924,Received downlink command
+2023.12.09 09:10:21:932,Command created date, Ref is astrocast Epoch (2018-01-01 00:00:00 UTC): 187285645s.
+2023.12.09 09:10:21:934,Command content is:
+2023.12.09 09:10:21:935,8.16.47
+2023.12.09 09:10:21:939,Message sent to the Astronode -->
+2023.12.09 09:10:21:939,483C28
+2023.12.09 09:10:21:960,Message received from the Astronode <--
+2023.12.09 09:10:21:961,C8B4B9
+2023.12.09 09:10:21:964,The command ack has been cleared.
+2023.12.09 09:10:21:969,my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:41
+2023.12.09 09:10:21:974,my_rtc.c,my_rtc_set_alarm,al,2000.01.01 02:00:41

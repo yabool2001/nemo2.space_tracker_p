@@ -9,7 +9,40 @@
 #include "stm32g0xx_hal.h"
 #include <stdlib.h>
 
-void my_rand_get_coordinates ( int32_t* last_latitude_astro_geo_wr , int32_t* last_longitude_astro_geo_wr , int32_t* latitude_astro_geo_wr , int32_t* longitude_astro_geo_wr )
+void my_rand_get_coordinates ( double* last_latitude_astro_geo_wr , double* last_longitude_astro_geo_wr , double* latitude_astro_geo_wr , double* longitude_astro_geo_wr )
+{
+
+    // Wartości współrzędnych
+    double last_lat = *last_latitude_astro_geo_wr ;
+    double last_lon = *last_longitude_astro_geo_wr ;
+
+    // Losowa odległość w zakresie 0-100 km (jako różnica współrzędnych)
+    double delta_lat = ( ( double ) rand () / RAND_MAX - 0.5 ) * 0.2 ;  // zakres: -0.1 do 0.1
+    double delta_lon = ( ( double ) rand () / RAND_MAX - 0.5 ) * 0.2 ;  // zakres: -0.1 do 0.1
+
+    // Nowe współrzędne
+    *latitude_astro_geo_wr = last_lat + delta_lat;
+    *longitude_astro_geo_wr = last_lon + delta_lon;
+
+    // Sprawdź, czy współrzędne są w zakresie poprawnym dla półkul
+    if ( *latitude_astro_geo_wr > 90.0 || *latitude_astro_geo_wr < -90.0 )
+    {
+        // Poza zakresem dla półkuli północnej i południowej, więc odwróć znak
+        *latitude_astro_geo_wr = -*latitude_astro_geo_wr;
+    }
+
+    // Zakres dla współrzędnych geograficznych to -180 do 180
+    if ( *longitude_astro_geo_wr > 180.0 )
+    {
+        *longitude_astro_geo_wr = *longitude_astro_geo_wr - 360.0 ;
+    }
+    else if ( *longitude_astro_geo_wr < -180.0 )
+    {
+        *longitude_astro_geo_wr = *longitude_astro_geo_wr + 360.0 ;
+    }
+}
+
+void my_rand_get_coordinates_old ( int32_t* last_latitude_astro_geo_wr , int32_t* last_longitude_astro_geo_wr , int32_t* latitude_astro_geo_wr , int32_t* longitude_astro_geo_wr )
 {
 
     // Wartości współrzędnych przemnożone przez 10000000

@@ -71,9 +71,15 @@ bool		is_rtc_alarma_flag = false ;
 
 // temp
 // Przykładowe współrzędne
+/*
 int32_t last_latitude_astro_geo_wr = 52278250 ; // Początkowe współrzędne: 52.278250 * 10000000
 int32_t last_longitude_astro_geo_wr = 20809116 ; // Początkowe współrzędne: 20.809116 * 10000000
-int32_t latitude_astro_geo_wr , longitude_astro_geo_wr ;
+*/
+double last_latitude_astro_geo_wr = 52.278250 ; // Początkowe współrzędne: 52.278250 * 10000000
+double last_longitude_astro_geo_wr = 20.809116 ; // Początkowe współrzędne: 20.809116 * 10000000
+
+// int32_t latitude_astro_geo_wr , longitude_astro_geo_wr ;
+double latitude_astro_geo_wr , longitude_astro_geo_wr ;
 
 //int32_t latitude_astro_geo_wr = last_latitude_astro_geo_wr ;
 //int32_t longitude_astro_geo_wr = last_longitude_astro_geo_wr ;
@@ -163,7 +169,8 @@ int main(void)
 		  }
 		  sprintf ( payload , "fv=%s" , fv ) ;
 		  sprintf ( dbg_m , "main.c,ucb2,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
-		  my_astro_write_coordinates ( last_latitude_astro_geo_wr , last_longitude_astro_geo_wr ) ;
+		  //my_astro_write_coordinates ( last_latitude_astro_geo_wr , last_longitude_astro_geo_wr ) ;
+		  my_astro_write_coordinates ( (int32_t) last_latitude_astro_geo_wr * 1e7 , (int32_t) last_longitude_astro_geo_wr * 1e7 ) ;
 		  my_astro_add_payload_2_queue ( astro_payload_id++ , payload ) ;
 		  send_debug_logs ( dbg_m ) ;
 	  }
@@ -193,7 +200,7 @@ int main(void)
 	  {
 		  is_rtc_alarma_flag = false ;
 		  my_rand_get_coordinates ( &last_latitude_astro_geo_wr , &last_longitude_astro_geo_wr , &latitude_astro_geo_wr , &longitude_astro_geo_wr ) ;
-		  my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
+		  //my_astro_write_coordinates ( latitude_astro_geo_wr , longitude_astro_geo_wr ) ;
 		  pdop = ((float) rand () / RAND_MAX) * 99.9 ;
 		  sprintf ( payload , "%.1f" , pdop ) ;
 		  sprintf ( dbg_m , "main.c,ucnw,payload,%u %s" , astro_payload_id , payload ) ; // Żeby astro_payload_id był taki jak wysłany, bo po wysłaniu będzie zwiększony
