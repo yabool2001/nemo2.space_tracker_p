@@ -102,7 +102,7 @@ static void MX_USART3_UART_Init(void);
 static void MX_USART4_UART_Init(void);
 /* USER CODE BEGIN PFP */
 bool is_system_initialized ( void ) ;
-bool my_astro_init ( TIM_HandleTypeDef ) ;
+bool my_astro_init () ;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -150,7 +150,7 @@ int main(void)
 
   // System Init
   my_tim_init ( HTIM ) ;
-
+  my_tim_start ( HTIM ) ;
   if ( !is_system_initialized () )
   {
 	  if ( !my_astro_init ( htim6 ) )
@@ -173,9 +173,12 @@ int main(void)
   }
   if ( my_rtc_set_alarm ( rtc_alarm_time ) && !dbg_mode_flag )
   {
+	  tim_seconds = 0 ;
+	  my_tim_stop ( HTIM ) ;
 	  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 	  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
 	  HAL_ResumeTick () ;
+	  my_tim_start ( HTIM ) ;
 	  my_rtc_get_dt_s ( rtc_dt_s ) ;
 	  send_debug_logs ( rtc_dt_s ) ;
   }
@@ -211,9 +214,12 @@ int main(void)
 	  if ( !dbg_mode_flag )
 		  if ( my_rtc_set_alarm ( rtc_alarm_time ) && !dbg_mode_flag )
 		  {
+			  tim_seconds = 0 ;
+			  my_tim_stop ( HTIM ) ;
 			  HAL_SuspendTick () ; // Jak nie wyłączę to mnie przerwanie SysTick od razu wybudzi!!!
 			  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON , PWR_STOPENTRY_WFE ) ;
 			  HAL_ResumeTick () ;
+			  my_tim_start ( HTIM ) ;
 			  my_rtc_get_dt_s ( rtc_dt_s ) ;
 			  send_debug_logs ( rtc_dt_s ) ;
 		  }
@@ -639,12 +645,11 @@ void my_tim_stop ( TIM_HandleTypeDef htim )
 }
 
 // Astronode functions
-bool my_astro_init ( TIM_HandleTypeDef htim )
+bool my_astro_init ()
 {
 	bool cfg_wr = false ;
 	tim_seconds = 0 ;
 
-	my_tim_start ( htim ) ;
 	while ( tim_seconds < MY_ASTRO_INIT_TIME && !cfg_wr )
 	{
 		reset_astronode () ;
@@ -659,8 +664,7 @@ bool my_astro_init ( TIM_HandleTypeDef htim )
 		// Message Transmission (Tx) Pending Event Pin Mask (false):  EVT pin does not show EVT register Msg Tx Pending bit state
 		cfg_wr = astronode_send_cfg_wr ( true , true , true , false , true , true , true , false  ) ;
 	}
-	tim_seconds = 0 ;
-	my_tim_stop ( htim ) ;
+
 	if ( cfg_wr )
 	{
 		astronode_send_rtc_rr () ;
