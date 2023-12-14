@@ -210,3 +210,793 @@
 [2023-12-14 21:00:44.157] main.c,ucb2,payload,0 fv=0.0.2
 [2023-12-14 21:00:44.164] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
 [2023-12-14 21:00:44.164] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:05:44.295] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:05:44.306] 
+[2023-12-14 21:05:44.306] Hello nemo2.space tracker p
+[2023-12-14 21:05:44.310] 
+[2023-12-14 21:05:44.310] 2000.01.01 00:00:00
+[2023-12-14 21:05:44.507] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:05:44.666] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.672] 05070007F2CD
+[2023-12-14 21:05:44.694] Message received from the Astronode <-- 
+[2023-12-14 21:05:44.705] 85DD20
+[2023-12-14 21:05:44.705] Astronode configuration successfully set.
+[2023-12-14 21:05:44.712] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.712] 172683
+[2023-12-14 21:05:44.732] Message received from the Astronode <-- 
+[2023-12-14 21:05:44.745] 970FE6310BE211
+[2023-12-14 21:05:44.745] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187819535s.
+[2023-12-14 21:05:44.752] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.752] 10C1F3
+[2023-12-14 21:05:44.777] Message received from the Astronode <-- 
+[2023-12-14 21:05:44.791] 904962
+[2023-12-14 21:05:44.791] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:05:44.791] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.795] 1BAA42
+[2023-12-14 21:05:44.840] Message received from the Astronode <-- 
+[2023-12-14 21:05:44.846] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:05:44.853] Module's product number is:
+[2023-12-14 21:05:44.853] AST50147-01
+[2023-12-14 21:05:44.856] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.861] 1A8B52
+[2023-12-14 21:05:44.907] Message received from the Astronode <-- 
+[2023-12-14 21:05:44.913] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:05:44.920] Module's Serial Number is:
+[2023-12-14 21:05:44.927] ANS2212FL000025
+[2023-12-14 21:05:44.927] Message sent to the Astronode --> 
+[2023-12-14 21:05:44.927] 19E862
+[2023-12-14 21:05:45.018] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.032] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:05:45.037] Module GUID is:
+[2023-12-14 21:05:45.037] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:05:45.037] Message sent to the Astronode --> 
+[2023-12-14 21:05:45.042] 2775B5
+[2023-12-14 21:05:45.058] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.064] FF01266A74
+[2023-12-14 21:05:45.067] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:05:45.075] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:05:45.083] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:05:45.086] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:05:45.086] Message sent to the Astronode --> 
+[2023-12-14 21:05:45.089] 65F3DD
+[2023-12-14 21:05:45.107] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.112] E5020AD2
+[2023-12-14 21:05:45.115] Astronode has reset.
+[2023-12-14 21:05:45.115] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:05:45.121] Message sent to the Astronode --> 
+[2023-12-14 21:05:45.124] 55A0EB
+[2023-12-14 21:05:45.140] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.146] D5287A
+[2023-12-14 21:05:45.148] astronode_application: The reset has been cleared.
+[2023-12-14 21:05:45.152] Message sent to the Astronode --> 
+[2023-12-14 21:05:45.157] 352407291F1838670CE54B
+[2023-12-14 21:05:45.190] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.195] B58E16
+[2023-12-14 21:05:45.195] Geolocation values were set successfully.
+[2023-12-14 21:05:45.201] Message sent to the Astronode --> 
+[2023-12-14 21:05:45.204] 25000066763D302E302E3224D1
+[2023-12-14 21:05:45.248] Message received from the Astronode <-- 
+[2023-12-14 21:05:45.258] A50000F09A
+[2023-12-14 21:05:45.258] astronode_application: payload 0 queued.
+[2023-12-14 21:05:45.265] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:05:45.265] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:05:45.272] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:10:45.441] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:10:45.459] 
+[2023-12-14 21:10:45.459] Hello nemo2.space tracker p
+[2023-12-14 21:10:45.459] 
+[2023-12-14 21:10:45.459] 2000.01.01 00:00:00
+[2023-12-14 21:10:45.653] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:10:45.810] Message sent to the Astronode --> 
+[2023-12-14 21:10:45.816] 05070007F2CD
+[2023-12-14 21:10:45.837] Message received from the Astronode <-- 
+[2023-12-14 21:10:45.850] 85DD20
+[2023-12-14 21:10:45.850] Astronode configuration successfully set.
+[2023-12-14 21:10:45.857] Message sent to the Astronode --> 
+[2023-12-14 21:10:45.857] 172683
+[2023-12-14 21:10:45.876] Message received from the Astronode <-- 
+[2023-12-14 21:10:45.886] 973CE7310BE791
+[2023-12-14 21:10:45.886] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187819836s.
+[2023-12-14 21:10:45.893] Message sent to the Astronode --> 
+[2023-12-14 21:10:45.901] 10C1F3
+[2023-12-14 21:10:45.920] Message received from the Astronode <-- 
+[2023-12-14 21:10:45.926] 904962
+[2023-12-14 21:10:45.926] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:10:45.933] Message sent to the Astronode --> 
+[2023-12-14 21:10:45.941] 1BAA42
+[2023-12-14 21:10:45.986] Message received from the Astronode <-- 
+[2023-12-14 21:10:45.999] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:10:45.999] Module's product number is:
+[2023-12-14 21:10:45.999] AST50147-01
+[2023-12-14 21:10:46.007] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.007] 1A8B52
+[2023-12-14 21:10:46.051] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.062] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:10:46.070] Module's Serial Number is:
+[2023-12-14 21:10:46.070] ANS2212FL000025
+[2023-12-14 21:10:46.070] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.072] 19E862
+[2023-12-14 21:10:46.161] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.175] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:10:46.185] Module GUID is:
+[2023-12-14 21:10:46.185] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:10:46.185] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.192] 2775B5
+[2023-12-14 21:10:46.203] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.216] FF01266A74
+[2023-12-14 21:10:46.216] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:10:46.228] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:10:46.238] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:10:46.239] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:10:46.239] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.244] 65F3DD
+[2023-12-14 21:10:46.252] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.265] E5020AD2
+[2023-12-14 21:10:46.265] Astronode has reset.
+[2023-12-14 21:10:46.265] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:10:46.268] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.271] 55A0EB
+[2023-12-14 21:10:46.285] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.292] D5287A
+[2023-12-14 21:10:46.292] astronode_application: The reset has been cleared.
+[2023-12-14 21:10:46.299] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.302] 352407291F1838670CE54B
+[2023-12-14 21:10:46.334] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.341] B58E16
+[2023-12-14 21:10:46.341] Geolocation values were set successfully.
+[2023-12-14 21:10:46.344] Message sent to the Astronode --> 
+[2023-12-14 21:10:46.349] 25000066763D302E302E3224D1
+[2023-12-14 21:10:46.392] Message received from the Astronode <-- 
+[2023-12-14 21:10:46.396] A50000F09A
+[2023-12-14 21:10:46.398] astronode_application: payload 0 queued.
+[2023-12-14 21:10:46.401] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:10:46.409] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:10:46.412] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:15:46.601] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:15:46.613] 
+[2023-12-14 21:15:46.613] Hello nemo2.space tracker p
+[2023-12-14 21:15:46.617] 
+[2023-12-14 21:15:46.617] 2000.01.01 00:00:00
+[2023-12-14 21:15:46.813] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:15:46.970] Message sent to the Astronode --> 
+[2023-12-14 21:15:46.978] 05070007F2CD
+[2023-12-14 21:15:46.998] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.007] 85DD20
+[2023-12-14 21:15:47.007] Astronode configuration successfully set.
+[2023-12-14 21:15:47.012] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.012] 172683
+[2023-12-14 21:15:47.036] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.042] 9769E8310BA874
+[2023-12-14 21:15:47.045] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187820137s.
+[2023-12-14 21:15:47.053] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.053] 10C1F3
+[2023-12-14 21:15:47.081] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.088] 904962
+[2023-12-14 21:15:47.088] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:15:47.095] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.095] 1BAA42
+[2023-12-14 21:15:47.145] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.150] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:15:47.154] Module's product number is:
+[2023-12-14 21:15:47.158] AST50147-01
+[2023-12-14 21:15:47.161] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.161] 1A8B52
+[2023-12-14 21:15:47.213] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.220] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:15:47.224] Module's Serial Number is:
+[2023-12-14 21:15:47.224] ANS2212FL000025
+[2023-12-14 21:15:47.228] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.232] 19E862
+[2023-12-14 21:15:47.320] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.327] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:15:47.334] Module GUID is:
+[2023-12-14 21:15:47.338] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:15:47.338] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.342] 2775B5
+[2023-12-14 21:15:47.363] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.369] FF01266A74
+[2023-12-14 21:15:47.369] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:15:47.379] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:15:47.383] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:15:47.387] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:15:47.390] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.394] 65F3DD
+[2023-12-14 21:15:47.414] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.418] E5020AD2
+[2023-12-14 21:15:47.418] Astronode has reset.
+[2023-12-14 21:15:47.421] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:15:47.429] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.429] 55A0EB
+[2023-12-14 21:15:47.446] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.452] D5287A
+[2023-12-14 21:15:47.452] astronode_application: The reset has been cleared.
+[2023-12-14 21:15:47.458] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.462] 352407291F1838670CE54B
+[2023-12-14 21:15:47.495] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.501] B58E16
+[2023-12-14 21:15:47.501] Geolocation values were set successfully.
+[2023-12-14 21:15:47.505] Message sent to the Astronode --> 
+[2023-12-14 21:15:47.509] 25000066763D302E302E3224D1
+[2023-12-14 21:15:47.552] Message received from the Astronode <-- 
+[2023-12-14 21:15:47.556] A50000F09A
+[2023-12-14 21:15:47.558] astronode_application: payload 0 queued.
+[2023-12-14 21:15:47.561] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:15:47.564] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:15:47.572] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:20:47.719] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:20:47.730] 
+[2023-12-14 21:20:47.730] Hello nemo2.space tracker p
+[2023-12-14 21:20:47.733] 
+[2023-12-14 21:20:47.733] 2000.01.01 00:00:00
+[2023-12-14 21:20:47.930] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:20:48.089] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.092] 05070007F2CD
+[2023-12-14 21:20:48.116] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.123] 85DD20
+[2023-12-14 21:20:48.123] Astronode configuration successfully set.
+[2023-12-14 21:20:48.126] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.129] 172683
+[2023-12-14 21:20:48.154] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.160] 9796E9310B3B08
+[2023-12-14 21:20:48.163] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187820438s.
+[2023-12-14 21:20:48.168] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.170] 10C1F3
+[2023-12-14 21:20:48.200] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.206] 904962
+[2023-12-14 21:20:48.206] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:20:48.214] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.214] 1BAA42
+[2023-12-14 21:20:48.265] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.271] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:20:48.274] Module's product number is:
+[2023-12-14 21:20:48.278] AST50147-01
+[2023-12-14 21:20:48.278] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.281] 1A8B52
+[2023-12-14 21:20:48.330] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.337] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:20:48.341] Module's Serial Number is:
+[2023-12-14 21:20:48.341] ANS2212FL000025
+[2023-12-14 21:20:48.345] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.349] 19E862
+[2023-12-14 21:20:48.439] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.446] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:20:48.454] Module GUID is:
+[2023-12-14 21:20:48.454] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:20:48.457] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.461] 2775B5
+[2023-12-14 21:20:48.482] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.488] FF01266A74
+[2023-12-14 21:20:48.488] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:20:48.498] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:20:48.501] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:20:48.506] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:20:48.511] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.514] 65F3DD
+[2023-12-14 21:20:48.531] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.537] E5020AD2
+[2023-12-14 21:20:48.537] Astronode has reset.
+[2023-12-14 21:20:48.540] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:20:48.547] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.547] 55A0EB
+[2023-12-14 21:20:48.565] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.572] D5287A
+[2023-12-14 21:20:48.572] astronode_application: The reset has been cleared.
+[2023-12-14 21:20:48.576] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.579] 352407291F1838670CE54B
+[2023-12-14 21:20:48.613] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.620] B58E16
+[2023-12-14 21:20:48.620] Geolocation values were set successfully.
+[2023-12-14 21:20:48.624] Message sent to the Astronode --> 
+[2023-12-14 21:20:48.627] 25000066763D302E302E3224D1
+[2023-12-14 21:20:48.672] Message received from the Astronode <-- 
+[2023-12-14 21:20:48.678] A50000F09A
+[2023-12-14 21:20:48.678] astronode_application: payload 0 queued.
+[2023-12-14 21:20:48.681] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:20:48.685] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:20:48.691] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:25:48.851] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:25:48.860] 
+[2023-12-14 21:25:48.860] Hello nemo2.space tracker p
+[2023-12-14 21:25:48.865] 
+[2023-12-14 21:25:48.865] 2000.01.01 00:00:00
+[2023-12-14 21:25:49.061] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:25:49.218] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.221] 05070007F2CD
+[2023-12-14 21:25:49.245] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.252] 85DD20
+[2023-12-14 21:25:49.252] Astronode configuration successfully set.
+[2023-12-14 21:25:49.256] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.260] 172683
+[2023-12-14 21:25:49.284] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.290] 97C3EA310B1598
+[2023-12-14 21:25:49.292] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187820739s.
+[2023-12-14 21:25:49.300] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.303] 10C1F3
+[2023-12-14 21:25:49.333] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.338] 904962
+[2023-12-14 21:25:49.338] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:25:49.342] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.344] 1BAA42
+[2023-12-14 21:25:49.393] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.400] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:25:49.405] Module's product number is:
+[2023-12-14 21:25:49.405] AST50147-01
+[2023-12-14 21:25:49.409] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.412] 1A8B52
+[2023-12-14 21:25:49.459] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.464] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:25:49.468] Module's Serial Number is:
+[2023-12-14 21:25:49.470] ANS2212FL000025
+[2023-12-14 21:25:49.474] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.477] 19E862
+[2023-12-14 21:25:49.569] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.576] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:25:49.583] Module GUID is:
+[2023-12-14 21:25:49.583] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:25:49.587] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.590] 2775B5
+[2023-12-14 21:25:49.611] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.619] FF01266A74
+[2023-12-14 21:25:49.619] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:25:49.628] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:25:49.635] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:25:49.635] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:25:49.639] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.643] 65F3DD
+[2023-12-14 21:25:49.659] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.663] E5020AD2
+[2023-12-14 21:25:49.667] Astronode has reset.
+[2023-12-14 21:25:49.667] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:25:49.673] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.676] 55A0EB
+[2023-12-14 21:25:49.693] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.699] D5287A
+[2023-12-14 21:25:49.699] astronode_application: The reset has been cleared.
+[2023-12-14 21:25:49.705] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.708] 352407291F1838670CE54B
+[2023-12-14 21:25:49.742] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.749] B58E16
+[2023-12-14 21:25:49.749] Geolocation values were set successfully.
+[2023-12-14 21:25:49.757] Message sent to the Astronode --> 
+[2023-12-14 21:25:49.757] 25000066763D302E302E3224D1
+[2023-12-14 21:25:49.801] Message received from the Astronode <-- 
+[2023-12-14 21:25:49.807] A50000F09A
+[2023-12-14 21:25:49.807] astronode_application: payload 0 queued.
+[2023-12-14 21:25:49.810] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:25:49.814] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:25:49.820] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:30:49.964] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:30:49.987] 
+[2023-12-14 21:30:49.987] Hello nemo2.space tracker p
+[2023-12-14 21:30:49.987] 
+[2023-12-14 21:30:49.987] 2000.01.01 00:00:00
+[2023-12-14 21:30:50.175] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:30:50.331] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.337] 05070007F2CD
+[2023-12-14 21:30:50.359] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.365] 85DD20
+[2023-12-14 21:30:50.365] Astronode configuration successfully set.
+[2023-12-14 21:30:50.372] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.375] 172683
+[2023-12-14 21:30:50.397] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.406] 97F0EB310B1018
+[2023-12-14 21:30:50.406] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187821040s.
+[2023-12-14 21:30:50.415] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.415] 10C1F3
+[2023-12-14 21:30:50.442] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.446] 904962
+[2023-12-14 21:30:50.448] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:30:50.453] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.456] 1BAA42
+[2023-12-14 21:30:50.506] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.514] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:30:50.518] Module's product number is:
+[2023-12-14 21:30:50.519] AST50147-01
+[2023-12-14 21:30:50.519] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.523] 1A8B52
+[2023-12-14 21:30:50.573] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.577] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:30:50.580] Module's Serial Number is:
+[2023-12-14 21:30:50.583] ANS2212FL000025
+[2023-12-14 21:30:50.587] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.591] 19E862
+[2023-12-14 21:30:50.684] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.688] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:30:50.701] Module GUID is:
+[2023-12-14 21:30:50.701] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:30:50.706] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.706] 2775B5
+[2023-12-14 21:30:50.729] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.733] FF01266A74
+[2023-12-14 21:30:50.733] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:30:50.741] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:30:50.745] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:30:50.750] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:30:50.754] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.764] 65F3DD
+[2023-12-14 21:30:50.773] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.781] E5020AD2
+[2023-12-14 21:30:50.784] Astronode has reset.
+[2023-12-14 21:30:50.784] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:30:50.787] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.789] 55A0EB
+[2023-12-14 21:30:50.807] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.811] D5287A
+[2023-12-14 21:30:50.823] astronode_application: The reset has been cleared.
+[2023-12-14 21:30:50.824] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.824] 352407291F1838670CE54B
+[2023-12-14 21:30:50.856] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.860] B58E16
+[2023-12-14 21:30:50.862] Geolocation values were set successfully.
+[2023-12-14 21:30:50.866] Message sent to the Astronode --> 
+[2023-12-14 21:30:50.869] 25000066763D302E302E3224D1
+[2023-12-14 21:30:50.914] Message received from the Astronode <-- 
+[2023-12-14 21:30:50.918] A50000F09A
+[2023-12-14 21:30:50.919] astronode_application: payload 0 queued.
+[2023-12-14 21:30:50.923] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:30:50.926] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:30:50.931] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:35:51.077] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:35:51.086] 
+[2023-12-14 21:35:51.088] Hello nemo2.space tracker p
+[2023-12-14 21:35:51.089] 
+[2023-12-14 21:35:51.090] 2000.01.01 00:00:00
+[2023-12-14 21:35:51.292] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:35:51.448] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.451] 05070007F2CD
+[2023-12-14 21:35:51.476] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.481] 85DD20
+[2023-12-14 21:35:51.485] Astronode configuration successfully set.
+[2023-12-14 21:35:51.489] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.489] 172683
+[2023-12-14 21:35:51.514] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.519] 971DED310BDC17
+[2023-12-14 21:35:51.526] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187821341s.
+[2023-12-14 21:35:51.532] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.538] 10C1F3
+[2023-12-14 21:35:51.559] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.563] 904962
+[2023-12-14 21:35:51.566] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:35:51.570] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.573] 1BAA42
+[2023-12-14 21:35:51.623] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.627] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:35:51.631] Module's product number is:
+[2023-12-14 21:35:51.632] AST50147-01
+[2023-12-14 21:35:51.634] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.639] 1A8B52
+[2023-12-14 21:35:51.688] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.693] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:35:51.696] Module's Serial Number is:
+[2023-12-14 21:35:51.700] ANS2212FL000025
+[2023-12-14 21:35:51.701] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.704] 19E862
+[2023-12-14 21:35:51.800] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.804] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:35:51.812] Module GUID is:
+[2023-12-14 21:35:51.812] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:35:51.816] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.819] 2775B5
+[2023-12-14 21:35:51.840] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.843] FF01266A74
+[2023-12-14 21:35:51.845] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:35:51.853] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:35:51.859] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:35:51.860] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:35:51.866] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.869] 65F3DD
+[2023-12-14 21:35:51.889] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.894] E5020AD2
+[2023-12-14 21:35:51.894] Astronode has reset.
+[2023-12-14 21:35:51.897] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:35:51.902] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.905] 55A0EB
+[2023-12-14 21:35:51.922] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.931] D5287A
+[2023-12-14 21:35:51.931] astronode_application: The reset has been cleared.
+[2023-12-14 21:35:51.935] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.938] 352407291F1838670CE54B
+[2023-12-14 21:35:51.972] Message received from the Astronode <-- 
+[2023-12-14 21:35:51.976] B58E16
+[2023-12-14 21:35:51.977] Geolocation values were set successfully.
+[2023-12-14 21:35:51.981] Message sent to the Astronode --> 
+[2023-12-14 21:35:51.985] 25000066763D302E302E3224D1
+[2023-12-14 21:35:52.031] Message received from the Astronode <-- 
+[2023-12-14 21:35:52.035] A50000F09A
+[2023-12-14 21:35:52.035] astronode_application: payload 0 queued.
+[2023-12-14 21:35:52.039] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:35:52.042] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:35:52.047] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:40:52.283] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:40:52.287] 
+[2023-12-14 21:40:52.287] Hello nemo2.space tracker p
+[2023-12-14 21:40:52.290] 
+[2023-12-14 21:40:52.290] 2000.01.01 00:00:00
+[2023-12-14 21:40:52.489] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:40:52.645] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.652] 05070007F2CD
+[2023-12-14 21:40:52.673] Message received from the Astronode <-- 
+[2023-12-14 21:40:52.680] 85DD20
+[2023-12-14 21:40:52.680] Astronode configuration successfully set.
+[2023-12-14 21:40:52.684] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.687] 172683
+[2023-12-14 21:40:52.712] Message received from the Astronode <-- 
+[2023-12-14 21:40:52.718] 974AEE310B9A6A
+[2023-12-14 21:40:52.719] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187821642s.
+[2023-12-14 21:40:52.728] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.728] 10C1F3
+[2023-12-14 21:40:52.757] Message received from the Astronode <-- 
+[2023-12-14 21:40:52.763] 904962
+[2023-12-14 21:40:52.763] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:40:52.770] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.770] 1BAA42
+[2023-12-14 21:40:52.822] Message received from the Astronode <-- 
+[2023-12-14 21:40:52.827] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:40:52.831] Module's product number is:
+[2023-12-14 21:40:52.834] AST50147-01
+[2023-12-14 21:40:52.834] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.837] 1A8B52
+[2023-12-14 21:40:52.888] Message received from the Astronode <-- 
+[2023-12-14 21:40:52.894] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:40:52.898] Module's Serial Number is:
+[2023-12-14 21:40:52.901] ANS2212FL000025
+[2023-12-14 21:40:52.901] Message sent to the Astronode --> 
+[2023-12-14 21:40:52.904] 19E862
+[2023-12-14 21:40:52.997] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.003] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:40:53.012] Module GUID is:
+[2023-12-14 21:40:53.012] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:40:53.015] Message sent to the Astronode --> 
+[2023-12-14 21:40:53.018] 2775B5
+[2023-12-14 21:40:53.039] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.045] FF01266A74
+[2023-12-14 21:40:53.045] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:40:53.057] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:40:53.060] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:40:53.060] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:40:53.067] Message sent to the Astronode --> 
+[2023-12-14 21:40:53.071] 65F3DD
+[2023-12-14 21:40:53.087] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.093] E5020AD2
+[2023-12-14 21:40:53.093] Astronode has reset.
+[2023-12-14 21:40:53.097] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:40:53.103] Message sent to the Astronode --> 
+[2023-12-14 21:40:53.107] 55A0EB
+[2023-12-14 21:40:53.121] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.127] D5287A
+[2023-12-14 21:40:53.127] astronode_application: The reset has been cleared.
+[2023-12-14 21:40:53.133] Message sent to the Astronode --> 
+[2023-12-14 21:40:53.137] 352407291F1838670CE54B
+[2023-12-14 21:40:53.171] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.177] B58E16
+[2023-12-14 21:40:53.177] Geolocation values were set successfully.
+[2023-12-14 21:40:53.184] Message sent to the Astronode --> 
+[2023-12-14 21:40:53.184] 25000066763D302E302E3224D1
+[2023-12-14 21:40:53.229] Message received from the Astronode <-- 
+[2023-12-14 21:40:53.235] A50000F09A
+[2023-12-14 21:40:53.235] astronode_application: payload 0 queued.
+[2023-12-14 21:40:53.238] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:40:53.242] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:40:53.248] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:45:53.485] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:45:53.496] 
+[2023-12-14 21:45:53.496] Hello nemo2.space tracker p
+[2023-12-14 21:45:53.500] 
+[2023-12-14 21:45:53.500] 2000.01.01 00:00:00
+[2023-12-14 21:45:53.697] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:45:53.854] Message sent to the Astronode --> 
+[2023-12-14 21:45:53.861] 05070007F2CD
+[2023-12-14 21:45:53.882] Message received from the Astronode <-- 
+[2023-12-14 21:45:53.889] 85DD20
+[2023-12-14 21:45:53.889] Astronode configuration successfully set.
+[2023-12-14 21:45:53.892] Message sent to the Astronode --> 
+[2023-12-14 21:45:53.895] 172683
+[2023-12-14 21:45:53.920] Message received from the Astronode <-- 
+[2023-12-14 21:45:53.927] 9777EF310BC548
+[2023-12-14 21:45:53.930] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187821943s.
+[2023-12-14 21:45:53.936] Message sent to the Astronode --> 
+[2023-12-14 21:45:53.940] 10C1F3
+[2023-12-14 21:45:53.965] Message received from the Astronode <-- 
+[2023-12-14 21:45:53.970] 904962
+[2023-12-14 21:45:53.970] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:45:53.976] Message sent to the Astronode --> 
+[2023-12-14 21:45:53.979] 1BAA42
+[2023-12-14 21:45:54.029] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.035] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:45:54.038] Module's product number is:
+[2023-12-14 21:45:54.042] AST50147-01
+[2023-12-14 21:45:54.044] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.047] 1A8B52
+[2023-12-14 21:45:54.096] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.102] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:45:54.106] Module's Serial Number is:
+[2023-12-14 21:45:54.109] ANS2212FL000025
+[2023-12-14 21:45:54.109] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.113] 19E862
+[2023-12-14 21:45:54.205] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.212] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:45:54.218] Module GUID is:
+[2023-12-14 21:45:54.222] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:45:54.225] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.229] 2775B5
+[2023-12-14 21:45:54.247] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.254] FF01266A74
+[2023-12-14 21:45:54.254] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:45:54.262] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:45:54.267] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:45:54.270] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:45:54.273] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.275] 65F3DD
+[2023-12-14 21:45:54.297] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.301] E5020AD2
+[2023-12-14 21:45:54.304] Astronode has reset.
+[2023-12-14 21:45:54.304] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:45:54.310] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.314] 55A0EB
+[2023-12-14 21:45:54.330] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.337] D5287A
+[2023-12-14 21:45:54.337] astronode_application: The reset has been cleared.
+[2023-12-14 21:45:54.341] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.344] 352407291F1838670CE54B
+[2023-12-14 21:45:54.379] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.386] B58E16
+[2023-12-14 21:45:54.386] Geolocation values were set successfully.
+[2023-12-14 21:45:54.390] Message sent to the Astronode --> 
+[2023-12-14 21:45:54.393] 25000066763D302E302E3224D1
+[2023-12-14 21:45:54.437] Message received from the Astronode <-- 
+[2023-12-14 21:45:54.443] A50000F09A
+[2023-12-14 21:45:54.443] astronode_application: payload 0 queued.
+[2023-12-14 21:45:54.447] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:45:54.450] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:45:54.456] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:50:54.658] main.c,HAL_TIM_PeriodElapsedCallback,HAL_NVIC_SystemReset
+[2023-12-14 21:50:54.669] 
+[2023-12-14 21:50:54.671] Hello nemo2.space tracker p
+[2023-12-14 21:50:54.671] 
+[2023-12-14 21:50:54.671] 2000.01.01 00:00:00
+[2023-12-14 21:50:54.870] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:50:55.028] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.031] 05070007F2CD
+[2023-12-14 21:50:55.055] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.059] 85DD20
+[2023-12-14 21:50:55.060] Astronode configuration successfully set.
+[2023-12-14 21:50:55.065] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.069] 172683
+[2023-12-14 21:50:55.093] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.097] 97A4F0310B4814
+[2023-12-14 21:50:55.100] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187822244s.
+[2023-12-14 21:50:55.107] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.115] 10C1F3
+[2023-12-14 21:50:55.139] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.142] 904962
+[2023-12-14 21:50:55.144] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:50:55.150] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.151] 1BAA42
+[2023-12-14 21:50:55.203] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.208] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:50:55.211] Module's product number is:
+[2023-12-14 21:50:55.215] AST50147-01
+[2023-12-14 21:50:55.215] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.219] 1A8B52
+[2023-12-14 21:50:55.269] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.274] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:50:55.277] Module's Serial Number is:
+[2023-12-14 21:50:55.280] ANS2212FL000025
+[2023-12-14 21:50:55.282] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.286] 19E862
+[2023-12-14 21:50:55.378] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.384] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:50:55.390] Module GUID is:
+[2023-12-14 21:50:55.391] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:50:55.395] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.399] 2775B5
+[2023-12-14 21:50:55.420] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.424] FF01266A74
+[2023-12-14 21:50:55.425] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:50:55.433] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:50:55.438] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:50:55.441] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:50:55.447] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.450] 65F3DD
+[2023-12-14 21:50:55.469] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.474] E5020AD2
+[2023-12-14 21:50:55.475] Astronode has reset.
+[2023-12-14 21:50:55.477] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:50:55.483] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.487] 55A0EB
+[2023-12-14 21:50:55.503] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.509] D5287A
+[2023-12-14 21:50:55.510] astronode_application: The reset has been cleared.
+[2023-12-14 21:50:55.514] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.518] 352407291F1838670CE54B
+[2023-12-14 21:50:55.552] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.557] B58E16
+[2023-12-14 21:50:55.557] Geolocation values were set successfully.
+[2023-12-14 21:50:55.562] Message sent to the Astronode --> 
+[2023-12-14 21:50:55.565] 25000066763D302E302E3224D1
+[2023-12-14 21:50:55.610] Message received from the Astronode <-- 
+[2023-12-14 21:50:55.615] A50000F09A
+[2023-12-14 21:50:55.616] astronode_application: payload 0 queued.
+[2023-12-14 21:50:55.619] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:50:55.623] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:00
+[2023-12-14 21:50:55.629] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:00
+[2023-12-14 21:54:25.787] 
+[2023-12-14 21:54:25.787] Hello nemo2.space tracker p
+[2023-12-14 21:54:25.790] 
+[2023-12-14 21:54:25.790] 2000.01.01 00:00:00
+[2023-12-14 21:54:25.988] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:54:28.064] 
+[2023-12-14 21:54:28.064] Hello nemo2.space tracker p
+[2023-12-14 21:54:28.066] 
+[2023-12-14 21:54:28.066] 2000.01.01 00:00:00
+[2023-12-14 21:54:28.364] main.c,HAL_GPIO_EXTI_Rising_Callback,4
+[2023-12-14 21:54:28.692] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.695] 05070007F2CD
+[2023-12-14 21:54:28.720] Message received from the Astronode <-- 
+[2023-12-14 21:54:28.727] 85DD20
+[2023-12-14 21:54:28.727] Astronode configuration successfully set.
+[2023-12-14 21:54:28.730] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.734] 172683
+[2023-12-14 21:54:28.758] Message received from the Astronode <-- 
+[2023-12-14 21:54:28.766] 977AF1310B2129
+[2023-12-14 21:54:28.766] RTC time since Astrocast Epoch (2018-01-01 00:00:00 UTC): 187822458s.
+[2023-12-14 21:54:28.773] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.776] 10C1F3
+[2023-12-14 21:54:28.805] Message received from the Astronode <-- 
+[2023-12-14 21:54:28.812] 904962
+[2023-12-14 21:54:28.812] Astronode configuration successfully saved in NVM.
+[2023-12-14 21:54:28.815] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.819] 1BAA42
+[2023-12-14 21:54:28.868] Message received from the Astronode <-- 
+[2023-12-14 21:54:28.874] 9B41535435303134372D30310000000000D272
+[2023-12-14 21:54:28.878] Module's product number is:
+[2023-12-14 21:54:28.883] AST50147-01
+[2023-12-14 21:54:28.883] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.886] 1A8B52
+[2023-12-14 21:54:28.935] Message received from the Astronode <-- 
+[2023-12-14 21:54:28.941] 9A414E5332323132464C303030303235310969
+[2023-12-14 21:54:28.945] Module's Serial Number is:
+[2023-12-14 21:54:28.948] ANS2212FL000025
+[2023-12-14 21:54:28.948] Message sent to the Astronode --> 
+[2023-12-14 21:54:28.952] 19E862
+[2023-12-14 21:54:29.043] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.050] 9965376139653565612D353039662D343836342D393337332D6264323963386433383966338D64
+[2023-12-14 21:54:29.056] Module GUID is:
+[2023-12-14 21:54:29.059] e7a9e5ea-509f-4864-9373-bd29c8d389f
+[2023-12-14 21:54:29.063] Message sent to the Astronode --> 
+[2023-12-14 21:54:29.066] 2775B5
+[2023-12-14 21:54:29.084] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.089] FF01266A74
+[2023-12-14 21:54:29.090] [ERROR] BUFFER_EMPTY : Failed to dequeue a payload from the buffer because the buffer is empty.
+[2023-12-14 21:54:29.099] astronode_application: Failed to clear the payload queue.
+[2023-12-14 21:54:29.106] main.c,ucb2,is_evt_pin_high
+[2023-12-14 21:54:29.110] my_astronode.c,my_astro_read_evt_reg,evt pin is high.
+[2023-12-14 21:54:29.113] Message sent to the Astronode --> 
+[2023-12-14 21:54:29.114] 65F3DD
+[2023-12-14 21:54:29.133] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.137] E5020AD2
+[2023-12-14 21:54:29.138] Astronode has reset.
+[2023-12-14 21:54:29.140] my_astronode.c,my_astro_read_evt_reg,terminal has been reset.
+[2023-12-14 21:54:29.146] Message sent to the Astronode --> 
+[2023-12-14 21:54:29.149] 55A0EB
+[2023-12-14 21:54:29.167] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.172] D5287A
+[2023-12-14 21:54:29.172] astronode_application: The reset has been cleared.
+[2023-12-14 21:54:29.177] Message sent to the Astronode --> 
+[2023-12-14 21:54:29.181] 352407291F1838670CE54B
+[2023-12-14 21:54:29.217] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.223] B58E16
+[2023-12-14 21:54:29.223] Geolocation values were set successfully.
+[2023-12-14 21:54:29.231] Message sent to the Astronode --> 
+[2023-12-14 21:54:29.231] 25000066763D302E302E3224D1
+[2023-12-14 21:54:29.275] Message received from the Astronode <-- 
+[2023-12-14 21:54:29.281] A50000F09A
+[2023-12-14 21:54:29.281] astronode_application: payload 0 queued.
+[2023-12-14 21:54:29.285] main.c,ucb2,payload,0 fv=0.0.2
+[2023-12-14 21:54:29.288] my_rtc.c,my_rtc_set_alarm,dt,2000.01.01 00:00:01
+[2023-12-14 21:54:29.294] my_rtc.c,my_rtc_set_alarm,al,2000.01.01 01:00:01
+[2023-12-14 21:55:05.817] 
+[2023-12-14 21:55:05.817] Hello nemo2.space tracker p
+[2023-12-14 21:55:05.819] 
+[2023-12-14 21:55:05.819] 2000.01.01 00:00:00
+[2023-12-14 21:55:06.018] main.c,HAL_GPIO_EXTI_Rising_Callback,4

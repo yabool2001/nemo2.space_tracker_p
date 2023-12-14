@@ -116,7 +116,7 @@ void my_tim_stop ( TIM_HandleTypeDef ) ;
 #define UART_TX_MAX_BUFF_SIZE			250
 #define UART_ASTRO_RX_MAX_BUFF_SIZE		100
 
-#define TIM_SECONDS_THS_SYSTEM_RESET	300		// 300 s = 5 min.
+#define TIM_SECONDS_THS_SYSTEM_RESET	3900		// 300 s = 5 min.
 #define MY_ASTRO_INIT_TIME				10
 #define ASTRO_LOG_TIMER					60000 	// 60 000 ms = 60 s
 

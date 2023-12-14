@@ -6732,58 +6732,58 @@ LOAD C:/ST/STM32CubeIDE_1.13.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000000000018fca      0xada ./my_lib/Src/my_conversions.o
  .debug_line    0x0000000000019aa4      0x92f ./my_lib/Src/my_rand.o
 
-.debug_str      0x0000000000000000    0xc5ae6
- .debug_str     0x0000000000000000    0xbd6b7 ./Core/Src/main.o
-                                      0xbdf93 (size before relaxing)
- .debug_str     0x00000000000bd6b7      0x2ad ./Core/Src/stm32g0xx_hal_msp.o
-                                      0xbd8f5 (size before relaxing)
- .debug_str     0x00000000000bd964      0x108 ./Core/Src/stm32g0xx_it.o
-                                      0xbd117 (size before relaxing)
- .debug_str     0x00000000000bda6c     0x1ff6 ./Core/Src/syscalls.o
+.debug_str      0x0000000000000000    0xc5ae7
+ .debug_str     0x0000000000000000    0xbd6b8 ./Core/Src/main.o
+                                      0xbdf94 (size before relaxing)
+ .debug_str     0x00000000000bd6b8      0x2ad ./Core/Src/stm32g0xx_hal_msp.o
+                                      0xbd8f6 (size before relaxing)
+ .debug_str     0x00000000000bd965      0x108 ./Core/Src/stm32g0xx_it.o
+                                      0xbd118 (size before relaxing)
+ .debug_str     0x00000000000bda6d     0x1ff6 ./Core/Src/syscalls.o
                                        0x924e (size before relaxing)
- .debug_str     0x00000000000bfa62       0x6b ./Core/Src/sysmem.o
+ .debug_str     0x00000000000bfa63       0x6b ./Core/Src/sysmem.o
                                        0x5960 (size before relaxing)
- .debug_str     0x00000000000bfacd       0x8e ./Core/Src/system_stm32g0xx.o
+ .debug_str     0x00000000000bface       0x8e ./Core/Src/system_stm32g0xx.o
                                       0xb906d (size before relaxing)
- .debug_str     0x00000000000bfb5b       0x34 ./Core/Startup/startup_stm32g0b1retx.o
+ .debug_str     0x00000000000bfb5c       0x34 ./Core/Startup/startup_stm32g0b1retx.o
                                          0x68 (size before relaxing)
- .debug_str     0x00000000000bfb8f      0x59b ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o
+ .debug_str     0x00000000000bfb90      0x59b ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o
                                       0xb9946 (size before relaxing)
- .debug_str     0x00000000000c012a      0x234 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o
+ .debug_str     0x00000000000c012b      0x234 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o
                                       0xb9546 (size before relaxing)
- .debug_str     0x00000000000c035e      0x10a ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o
+ .debug_str     0x00000000000c035f      0x10a ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o
                                       0xb91d0 (size before relaxing)
- .debug_str     0x00000000000c0468      0x1f9 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o
+ .debug_str     0x00000000000c0469      0x1f9 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o
                                       0xb926e (size before relaxing)
- .debug_str     0x00000000000c0661      0x35b ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o
+ .debug_str     0x00000000000c0662      0x35b ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o
                                       0xb95ef (size before relaxing)
- .debug_str     0x00000000000c09bc      0x3c3 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o
+ .debug_str     0x00000000000c09bd      0x3c3 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o
                                       0xb975f (size before relaxing)
- .debug_str     0x00000000000c0d7f      0x32d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o
+ .debug_str     0x00000000000c0d80      0x32d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o
                                       0xb96c9 (size before relaxing)
- .debug_str     0x00000000000c10ac      0x1f3 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc.o
+ .debug_str     0x00000000000c10ad      0x1f3 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc.o
                                       0xb9583 (size before relaxing)
- .debug_str     0x00000000000c129f      0x6e1 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc_ex.o
+ .debug_str     0x00000000000c12a0      0x6e1 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc_ex.o
                                       0xb99ef (size before relaxing)
- .debug_str     0x00000000000c1980      0xe6d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o
+ .debug_str     0x00000000000c1981      0xe6d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o
                                       0xba5c6 (size before relaxing)
- .debug_str     0x00000000000c27ed      0x5f9 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o
+ .debug_str     0x00000000000c27ee      0x5f9 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o
                                       0xb9f64 (size before relaxing)
- .debug_str     0x00000000000c2de6      0x9bb ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.o
+ .debug_str     0x00000000000c2de7      0x9bb ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.o
                                       0xba058 (size before relaxing)
- .debug_str     0x00000000000c37a1      0x264 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.o
+ .debug_str     0x00000000000c37a2      0x264 ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.o
                                       0xb991e (size before relaxing)
- .debug_str     0x00000000000c3a05     0x1b1a ./my_drvs/Src/astronode_application.o
-                                      0xbe4fb (size before relaxing)
- .debug_str     0x00000000000c551f      0x3e6 ./my_drvs/Src/astronode_transport.o
-                                      0xbd3ec (size before relaxing)
- .debug_str     0x00000000000c5905       0x58 ./my_drvs/Src/my_astronode.o
-                                      0xbca76 (size before relaxing)
- .debug_str     0x00000000000c595d       0x78 ./my_drvs/Src/my_rtc.o
-                                      0xbcc7c (size before relaxing)
- .debug_str     0x00000000000c59d5       0xb1 ./my_lib/Src/my_conversions.o
+ .debug_str     0x00000000000c3a06     0x1b1a ./my_drvs/Src/astronode_application.o
+                                      0xbe4fc (size before relaxing)
+ .debug_str     0x00000000000c5520      0x3e6 ./my_drvs/Src/astronode_transport.o
+                                      0xbd3ed (size before relaxing)
+ .debug_str     0x00000000000c5906       0x58 ./my_drvs/Src/my_astronode.o
+                                      0xbca77 (size before relaxing)
+ .debug_str     0x00000000000c595e       0x78 ./my_drvs/Src/my_rtc.o
+                                      0xbcc7d (size before relaxing)
+ .debug_str     0x00000000000c59d6       0xb1 ./my_lib/Src/my_conversions.o
                                       0xbc3b4 (size before relaxing)
- .debug_str     0x00000000000c5a86       0x60 ./my_lib/Src/my_rand.o
+ .debug_str     0x00000000000c5a87       0x60 ./my_lib/Src/my_rand.o
                                       0xbbbe7 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x5f84
