@@ -630,18 +630,18 @@ bool is_systick_timeout_over ( uint32_t starting_value , uint16_t duration )
 // TIM functions
 void my_tim_init ( TIM_HandleTypeDef htim )
 {
-	__HAL_TIM_CLEAR_IT ( &htim , TIM_IT_UPDATE ) ;
+	__HAL_TIM_CLEAR_IT ( &htim6 , TIM_IT_UPDATE ) ;
 }
 
 void my_tim_start ( TIM_HandleTypeDef htim )
 {
 	tim_seconds = 0 ;
-	HAL_TIM_Base_Start_IT ( &htim ) ;
+	HAL_TIM_Base_Start_IT ( &htim6 ) ;
 }
 
 void my_tim_stop ( TIM_HandleTypeDef htim )
 {
-	HAL_TIM_Base_Stop_IT ( &htim ) ;
+	HAL_TIM_Base_Stop_IT ( &htim6 ) ;
 }
 
 // Astronode functions

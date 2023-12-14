@@ -13,7 +13,7 @@
 ../Core/Src/main.c:617:6:is_evt_pin_high	8	static
 ../Core/Src/main.c:621:10:get_systick	8	static
 ../Core/Src/main.c:625:6:is_systick_timeout_over	16	static
-../Core/Src/main.c:631:6:my_tim_init	16	static
+../Core/Src/main.c:631:6:my_tim_init	12	static
 ../Core/Src/main.c:636:6:my_tim_start	16	static
 ../Core/Src/main.c:642:6:my_tim_stop	16	static
 ../Core/Src/main.c:648:6:my_astro_init	40	static
